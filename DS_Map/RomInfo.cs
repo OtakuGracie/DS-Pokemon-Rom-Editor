@@ -6,6 +6,7 @@ using System.Linq;
 using DSPRE.Resources;
 using System;
 using DSPRE.ROMFiles;
+using static DSPRE.RomInfo;
 
 namespace DSPRE {
 
@@ -29,7 +30,7 @@ namespace DSPRE {
 
         public static uint synthOverlayLoadAddress = 0x023C8000;
         public static uint arm9spawnOffset { get; private set; }
-        
+
         public static int initialMoneyOverlayNumber { get; private set; }
         public static uint initialMoneyOverlayOffset { get; private set; }
 
@@ -110,11 +111,9 @@ namespace DSPRE {
             German
         }
         public enum DirNames : byte {
-            speciesData,
-
             synthOverlay,            
             dynamicHeaders,
-            
+
             textArchives,
             matrices,
 
@@ -137,7 +136,8 @@ namespace DSPRE {
 
             monIcons,
 
-            interiorBuildingModels
+            interiorBuildingModels,
+            learnsets
         };
         public static Dictionary<DirNames, (string packedDir, string unpackedDir)> gameDirs { get; private set; }
 
@@ -210,11 +210,11 @@ namespace DSPRE {
                     break;
                 default:
                     commonDictionaryNames = ScriptDatabase.HGSSScrCmdNames;
-                    #if true
-                        specificDictionaryNames = new Dictionary<ushort, string>();
-                    #else
+#if true
+                    specificDictionaryNames = new Dictionary<ushort, string>();
+#else
                         specificDictionaryNames = ScriptDatabase.CustomScrCmdNames;
-                    #endif
+#endif
                     break;
             }
             return commonDictionaryNames.Concat(specificDictionaryNames).ToLookup(x => x.Key, x => x.Value).ToDictionary(x => x.Key, g => g.First());
@@ -234,11 +234,11 @@ namespace DSPRE {
                     break;
                 default:
                     commonDictionaryParams = ScriptDatabase.HGSSScrCmdParameters;
-                    #if true
-                        specificDictionaryParams = new Dictionary<ushort, byte[]>();
-                    #else
+#if true
+                    specificDictionaryParams = new Dictionary<ushort, byte[]>();
+#else
                         specificDictionaryParams = ScriptDatabase.CustomScrCmdParameters;
-                    #endif
+#endif
                     break;
             }
             return commonDictionaryParams.Concat(specificDictionaryParams).ToLookup(x => x.Key, x => x.Value).ToDictionary(x => x.Key, g => g.First());
@@ -530,12 +530,19 @@ namespace DSPRE {
 
                     using (DSUtils.EasyReader bReader = new DSUtils.EasyReader(ov1Path, ramAddrOfPointer - ov1Address)) { // read the pointer at the specified ram address and adjust accordingly below
                         uint ramAddressOfTable = bReader.ReadUInt32();
-                        if (ramAddressOfTable >= 0x03000000) {
+                        if ((ramAddressOfTable >> 0x18) != 0x02) {
                             MessageBox.Show("Something went wrong reading the Overworld configuration table.\nOverworld sprites in the Event Editor will be " +
                                 "displayed incorrectly or not displayed at all.", "Decompression error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
-                        if (ramAddressOfTable >= RomInfo.synthOverlayLoadAddress) { // if the pointer shows the table was moved to the synthetic overlay
+
+                        string ov131path = DSUtils.GetOverlayPath(131);
+                        if (File.Exists(ov131path)) {
+                            // if HGE field extension overlay exists
+                            OWTableOffset = ramAddressOfTable - DSUtils.GetOverlayRAMAddress(131);
+                            OWtablePath = ov131path;
+                        } else if (ramAddressOfTable >= RomInfo.synthOverlayLoadAddress) {
+                            // if the pointer shows the table was moved to the synthetic overlay
                             OWTableOffset = ramAddressOfTable - RomInfo.synthOverlayLoadAddress;
                             OWtablePath = gameDirs[DirNames.synthOverlay].unpackedDir + "\\" + ROMToolboxDialog.expandedARMfileID.ToString("D4");
                         } else {
@@ -549,7 +556,7 @@ namespace DSPRE {
         public static void SetConditionalMusicTableOffsetToRAMAddress() {
             switch (gameFamily) {
                 case gFamEnum.HGSS:
-                    switch (gameLanguage) {                            
+                    switch (gameLanguage) {
                         case gLangEnum.Spanish:
                             conditionalMusicTableOffsetToRAMAddress = gameVersion == gVerEnum.HeartGold ? (uint)0x667D0 : 0x667D8;
                             break;
@@ -563,7 +570,7 @@ namespace DSPRE {
                             conditionalMusicTableOffsetToRAMAddress = 0x66238;
                             break;
                     }
-                break;
+                    break;
             }
         }
         public static void SetBattleEffectsData() {
@@ -629,7 +636,7 @@ namespace DSPRE {
                             encounterMusicTableOffsetToRAMAddress = 0x54B44;
                             break;
                     }
-                break;
+                    break;
 
                 case gFamEnum.Plat:
                     switch (gameLanguage) {
@@ -643,7 +650,7 @@ namespace DSPRE {
                             encounterMusicTableOffsetToRAMAddress = 0x556E0;
                             break;
                         case gLangEnum.Japanese:
-                            encounterMusicTableOffsetToRAMAddress = 0x54F04; 
+                            encounterMusicTableOffsetToRAMAddress = 0x54F04;
                             break;
                     }
                     break;
@@ -662,8 +669,8 @@ namespace DSPRE {
                         case gLangEnum.Japanese:
                             encounterMusicTableOffsetToRAMAddress = 0x4D9AC;
                             break;
-                    } 
-                break;
+                    }
+                    break;
             }
         }
         public static void SetMonIconsPalTableAddress() {
@@ -757,10 +764,8 @@ namespace DSPRE {
             }
         }
 
-        private void SetAbilityNamesTextNumber()
-        {
-            switch (gameFamily)
-            {
+        private void SetAbilityNamesTextNumber() {
+            switch (gameFamily) {
                 case gFamEnum.DP:
                     abilityNamesTextNumber = 552;
                     break;
@@ -774,7 +779,6 @@ namespace DSPRE {
                     break;
             }
         }
-
         private void SetAttackNamesTextNumber() {
             switch (gameFamily) {
                 case gFamEnum.DP:
@@ -875,11 +879,14 @@ namespace DSPRE {
         public static string[] GetItemNames() => new TextArchive(itemNamesTextNumber).messages.ToArray();
         public static string[] GetItemNames(int startIndex = 0, int? count = null) {
             TextArchive itemNames = new TextArchive(itemNamesTextNumber);
-            return itemNames.messages.GetRange(startIndex, count == null ? itemNames.messages.Count-1 : (int)count).ToArray();
+            return itemNames.messages.GetRange(startIndex, count == null ? itemNames.messages.Count - 1 : (int)count).ToArray();
         }
         public static string[] GetPokemonNames() => new TextArchive(pokemonNamesTextNumbers[0]).messages.ToArray();
         public static string[] GetAbilityNames() => new TextArchive(abilityNamesTextNumber).messages.ToArray();
         public static string[] GetAttackNames() => new TextArchive(attackNamesTextNumber).messages.ToArray();
+        public static int GetLearnsetFilesCount() => Directory.GetFiles(gameDirs[DirNames.learnsets].unpackedDir).Length;
+        public static int GetPersonalFilesCount() => Directory.GetFiles(gameDirs[DirNames.personalPokeData].unpackedDir).Length;
+
         public int GetAreaDataCount() => Directory.GetFiles(gameDirs[DirNames.areaData].unpackedDir).Length;
         public int GetMapTexturesCount() => Directory.GetFiles(gameDirs[DirNames.mapTextures].unpackedDir).Length;
         public int GetBuildingTexturesCount() => Directory.GetFiles(gameDirs[DirNames.buildingTextures].unpackedDir).Length;
@@ -890,9 +897,9 @@ namespace DSPRE {
         public int GetScriptCount() => Directory.GetFiles(gameDirs[DirNames.scripts].unpackedDir).Length;
         public int GetBuildingCount(bool interior) => Directory.GetFiles(GetBuildingModelsDirPath(interior)).Length;
         public static int GetEventFileCount() => Directory.GetFiles(RomInfo.gameDirs[DirNames.eventFiles].unpackedDir).Length;
-#endregion
+        #endregion
 
-#region System Methods
+        #region System Methods
         private void LoadGameLanguage() {
             switch (romID) {
                 case "ADAE":
@@ -955,7 +962,7 @@ namespace DSPRE {
                     gameFamily = gFamEnum.HGSS;
                     break;
             }
-        } 
+        }
         private void SetNarcDirs() {
             Dictionary<DirNames, string> packedDirsDict = null;
             switch (gameFamily) {
@@ -965,7 +972,6 @@ namespace DSPRE {
                         suffix = "_release";
 
                     packedDirsDict = new Dictionary<DirNames, string>() {
-                        [DirNames.speciesData] = @"data\poketool\personal\personal.narc",
                         [DirNames.synthOverlay] = @"data\data\weather_sys.narc",
                         [DirNames.textArchives] = @"data\msgdata\msg.narc",
 
@@ -989,12 +995,12 @@ namespace DSPRE {
 
                         [DirNames.monIcons] = @"data\poketool\icongra\poke_icon.narc",
 
-                        [DirNames.encounters] = @"data\fielddata\encountdata\" + char.ToLower(gameVersion.ToString()[0]) + '_' + "enc_data.narc"
+                        [DirNames.encounters] = @"data\fielddata\encountdata\" + char.ToLower(gameVersion.ToString()[0]) + '_' + "enc_data.narc",
+                        [DirNames.learnsets] = workDir + @"data\poketool\personal\wotbl.narc",
                     };
                     break;
                 case gFamEnum.Plat:
                     packedDirsDict = new Dictionary<DirNames, string>() {
-                        [DirNames.speciesData] = @"data\poketool\personal\pl_personal.narc",
                         [DirNames.synthOverlay] = @"data\data\weather_sys.narc",
                         [DirNames.dynamicHeaders] = @"data\debug\cb_edit\d_test.narc",
 
@@ -1020,12 +1026,12 @@ namespace DSPRE {
 
                         [DirNames.monIcons] = @"data\poketool\icongra\pl_poke_icon.narc",
 
-                        [DirNames.encounters] = @"data\fielddata\encountdata\" + gameVersion.ToString().Substring(0, 2).ToLower() + '_' + "enc_data.narc"
+                        [DirNames.encounters] = @"data\fielddata\encountdata\" + gameVersion.ToString().Substring(0, 2).ToLower() + '_' + "enc_data.narc",
+                        [DirNames.learnsets] = @"data\poketool\personal\wotbl.narc",
                     };
                     break;
                 case gFamEnum.HGSS:
                     packedDirsDict = new Dictionary<DirNames, string>() {
-                        [DirNames.speciesData] = @"data\a\0\0\2",
                         [DirNames.synthOverlay] = @"data\a\0\2\8",
                         [DirNames.dynamicHeaders] = @"data\a\0\5\0",
 
@@ -1051,7 +1057,8 @@ namespace DSPRE {
 
                         [DirNames.monIcons] = @"data\a\0\2\0",
 
-                        [DirNames.interiorBuildingModels] = @"data\a\1\4\8"
+                        [DirNames.interiorBuildingModels] = @"data\a\1\4\8",
+                        [DirNames.learnsets] = @"data\a\0\3\3",
                     };
 
                     //Encounter archive is different for SS 
@@ -1112,6 +1119,6 @@ namespace DSPRE {
             }
             overworldTableKeys = OverworldTable.Keys.ToArray();
         }
-#endregion
+        #endregion
     }
 }

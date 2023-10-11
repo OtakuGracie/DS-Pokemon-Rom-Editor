@@ -167,8 +167,9 @@
             this.weatherPicLabel = new System.Windows.Forms.Label();
             this.weatherPictureBox = new System.Windows.Forms.PictureBox();
             this.matrixEditorTabPage = new System.Windows.Forms.TabPage();
-            this.locateCurrentMatrixFile = new System.Windows.Forms.Button();
             this.setSpawnPointButton = new System.Windows.Forms.Button();
+            this.saveMatrixButton = new System.Windows.Forms.Button();
+            this.locateCurrentMatrixFile = new System.Windows.Forms.Button();
             this.resetColorTableButton = new System.Windows.Forms.Button();
             this.importColorTableButton = new System.Windows.Forms.Button();
             this.importMatrixButton = new System.Windows.Forms.Button();
@@ -193,7 +194,6 @@
             this.widthUpDown = new System.Windows.Forms.NumericUpDown();
             this.widthLabel = new System.Windows.Forms.Label();
             this.selectMatrixComboBox = new System.Windows.Forms.ComboBox();
-            this.saveMatrixButton = new System.Windows.Forms.Button();
             this.mapEditorTabPage = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.addMapFileButton = new System.Windows.Forms.Button();
@@ -622,15 +622,12 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.exportTrainerButton = new System.Windows.Forms.Button();
             this.importTrainerButton = new System.Windows.Forms.Button();
-            this.exportPropertiesButton = new System.Windows.Forms.Button();
-            this.importReplacePropertiesButton = new System.Windows.Forms.Button();
-            this.importReplacePartyButton = new System.Windows.Forms.Button();
-            this.exportPartyButton = new System.Windows.Forms.Button();
-            this.label74 = new System.Windows.Forms.Label();
-            this.DVExplainButton = new System.Windows.Forms.Button();
-            this.deleteTrainerButton = new System.Windows.Forms.Button();
-            this.addTrainerButton = new System.Windows.Forms.Button();
             this.groupBox28 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.DVExplainButton = new System.Windows.Forms.Button();
+            this.label74 = new System.Windows.Forms.Label();
             this.party6GroupBox = new System.Windows.Forms.GroupBox();
             this.partyForm6ComboBox = new System.Windows.Forms.ComboBox();
             this.partyAbility6ComboBox = new System.Windows.Forms.ComboBox();
@@ -758,6 +755,9 @@
             this.label17 = new System.Windows.Forms.Label();
             this.trainerClassPicBox = new System.Windows.Forms.PictureBox();
             this.groupBox25 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.replacePropertiesButton = new System.Windows.Forms.Button();
+            this.exportPropertiesButton = new System.Windows.Forms.Button();
             this.TrainerAIGroupBox = new System.Windows.Forms.GroupBox();
             this.trainerAI1CheckBox = new System.Windows.Forms.CheckBox();
             this.trainerAI2CheckBox = new System.Windows.Forms.CheckBox();
@@ -775,7 +775,9 @@
             this.trainerItem2ComboBox = new DSPRE.InputComboBox();
             this.trainerItem3ComboBox = new DSPRE.InputComboBox();
             this.trainerItem4ComboBox = new DSPRE.InputComboBox();
+            this.deleteTrainerButton = new System.Windows.Forms.Button();
             this.trainerItemsCheckBox = new System.Windows.Forms.CheckBox();
+            this.addTrainerButton = new System.Windows.Forms.Button();
             this.trainerMovesCheckBox = new System.Windows.Forms.CheckBox();
             this.trainerDoubleCheckBox = new System.Windows.Forms.CheckBox();
             this.trainerNameTextBox = new System.Windows.Forms.TextBox();
@@ -860,6 +862,9 @@
             this.texturizeNSBMDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.untexturizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.extractNSBTXFromNSBMDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.monEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.personalDataEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.learnsetsEditorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.essentialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.simpleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -1082,6 +1087,7 @@
             this.trainerEditorTabPage.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.groupBox28.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             this.party6GroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.partyPokemonItemPictureBox6)).BeginInit();
             this.poke6MovesGroupBox.SuspendLayout();
@@ -1130,6 +1136,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trClassFramePreviewUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trainerClassPicBox)).BeginInit();
             this.groupBox25.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.TrainerAIGroupBox.SuspendLayout();
             this.trainerItemsGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.partyCountUpDown)).BeginInit();
@@ -1169,7 +1176,7 @@
             this.mainTabControl.Location = new System.Drawing.Point(11, 72);
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
-            this.mainTabControl.Size = new System.Drawing.Size(1193, 730);
+            this.mainTabControl.Size = new System.Drawing.Size(1193, 646);
             this.mainTabControl.TabIndex = 5;
             this.mainTabControl.Visible = false;
             this.mainTabControl.SelectedIndexChanged += new System.EventHandler(this.mainTabControl_SelectedIndexChanged);
@@ -1204,7 +1211,7 @@
             this.headerEditorTabPage.Location = new System.Drawing.Point(4, 23);
             this.headerEditorTabPage.Name = "headerEditorTabPage";
             this.headerEditorTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.headerEditorTabPage.Size = new System.Drawing.Size(1185, 703);
+            this.headerEditorTabPage.Size = new System.Drawing.Size(1185, 619);
             this.headerEditorTabPage.TabIndex = 0;
             this.headerEditorTabPage.Text = "Header Editor";
             // 
@@ -2567,8 +2574,9 @@
             // matrixEditorTabPage
             // 
             this.matrixEditorTabPage.BackColor = System.Drawing.SystemColors.Window;
-            this.matrixEditorTabPage.Controls.Add(this.locateCurrentMatrixFile);
             this.matrixEditorTabPage.Controls.Add(this.setSpawnPointButton);
+            this.matrixEditorTabPage.Controls.Add(this.saveMatrixButton);
+            this.matrixEditorTabPage.Controls.Add(this.locateCurrentMatrixFile);
             this.matrixEditorTabPage.Controls.Add(this.resetColorTableButton);
             this.matrixEditorTabPage.Controls.Add(this.importColorTableButton);
             this.matrixEditorTabPage.Controls.Add(this.importMatrixButton);
@@ -2587,14 +2595,44 @@
             this.matrixEditorTabPage.Controls.Add(this.widthUpDown);
             this.matrixEditorTabPage.Controls.Add(this.widthLabel);
             this.matrixEditorTabPage.Controls.Add(this.selectMatrixComboBox);
-            this.matrixEditorTabPage.Controls.Add(this.saveMatrixButton);
             this.matrixEditorTabPage.ImageIndex = 1;
             this.matrixEditorTabPage.Location = new System.Drawing.Point(4, 23);
             this.matrixEditorTabPage.Name = "matrixEditorTabPage";
             this.matrixEditorTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.matrixEditorTabPage.Size = new System.Drawing.Size(1185, 703);
+            this.matrixEditorTabPage.Size = new System.Drawing.Size(1185, 619);
             this.matrixEditorTabPage.TabIndex = 1;
             this.matrixEditorTabPage.Text = "Matrix Editor";
+            // 
+            // setSpawnPointButton
+            // 
+            this.setSpawnPointButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.setSpawnPointButton.Image = global::DSPRE.Properties.Resources.spawnCoordsMatrixeditorIcon;
+            this.setSpawnPointButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.setSpawnPointButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.setSpawnPointButton.Location = new System.Drawing.Point(11, 521);
+            this.setSpawnPointButton.Name = "setSpawnPointButton";
+            this.setSpawnPointButton.Size = new System.Drawing.Size(117, 43);
+            this.setSpawnPointButton.TabIndex = 35;
+            this.setSpawnPointButton.Text = "Set Spawn\r\nto Selection";
+            this.setSpawnPointButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip1.SetToolTip(this.setSpawnPointButton, "Sets the current matrix cell as the player\'s Spawn Point");
+            this.setSpawnPointButton.UseVisualStyleBackColor = true;
+            this.setSpawnPointButton.Click += new System.EventHandler(this.setSpawnPointButton_Click);
+            // 
+            // saveMatrixButton
+            // 
+            this.saveMatrixButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.saveMatrixButton.Image = global::DSPRE.Properties.Resources.save_rom;
+            this.saveMatrixButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.saveMatrixButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.saveMatrixButton.Location = new System.Drawing.Point(12, 567);
+            this.saveMatrixButton.Name = "saveMatrixButton";
+            this.saveMatrixButton.Size = new System.Drawing.Size(117, 43);
+            this.saveMatrixButton.TabIndex = 34;
+            this.saveMatrixButton.Text = "Save Matrix";
+            this.saveMatrixButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.saveMatrixButton.UseVisualStyleBackColor = true;
+            this.saveMatrixButton.Click += new System.EventHandler(this.saveMatrixButton_Click);
             // 
             // locateCurrentMatrixFile
             // 
@@ -2606,22 +2644,6 @@
             this.locateCurrentMatrixFile.TabIndex = 33;
             this.locateCurrentMatrixFile.UseVisualStyleBackColor = true;
             this.locateCurrentMatrixFile.Click += new System.EventHandler(this.locateCurrentMatrixFile_Click);
-            // 
-            // setSpawnPointButton
-            // 
-            this.setSpawnPointButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.setSpawnPointButton.Image = global::DSPRE.Properties.Resources.spawnCoordsMatrixeditorIcon;
-            this.setSpawnPointButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.setSpawnPointButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.setSpawnPointButton.Location = new System.Drawing.Point(11, 605);
-            this.setSpawnPointButton.Name = "setSpawnPointButton";
-            this.setSpawnPointButton.Size = new System.Drawing.Size(117, 43);
-            this.setSpawnPointButton.TabIndex = 32;
-            this.setSpawnPointButton.Text = "Set Spawn\r\nto Selection";
-            this.setSpawnPointButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toolTip1.SetToolTip(this.setSpawnPointButton, "Sets the current matrix cell as the player\'s Spawn Point");
-            this.setSpawnPointButton.UseVisualStyleBackColor = true;
-            this.setSpawnPointButton.Click += new System.EventHandler(this.setSpawnPointButton_Click);
             // 
             // resetColorTableButton
             // 
@@ -2785,7 +2807,7 @@
             this.matrixTabControl.Multiline = true;
             this.matrixTabControl.Name = "matrixTabControl";
             this.matrixTabControl.SelectedIndex = 0;
-            this.matrixTabControl.Size = new System.Drawing.Size(1040, 686);
+            this.matrixTabControl.Size = new System.Drawing.Size(1040, 602);
             this.matrixTabControl.TabIndex = 18;
             // 
             // headersTabPage
@@ -2794,7 +2816,7 @@
             this.headersTabPage.Location = new System.Drawing.Point(4, 22);
             this.headersTabPage.Name = "headersTabPage";
             this.headersTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.headersTabPage.Size = new System.Drawing.Size(1032, 660);
+            this.headersTabPage.Size = new System.Drawing.Size(1032, 576);
             this.headersTabPage.TabIndex = 1;
             this.headersTabPage.Text = "Map Headers";
             this.headersTabPage.UseVisualStyleBackColor = true;
@@ -2857,7 +2879,7 @@
             this.heightsTabPage.Controls.Add(this.heightsGridView);
             this.heightsTabPage.Location = new System.Drawing.Point(4, 22);
             this.heightsTabPage.Name = "heightsTabPage";
-            this.heightsTabPage.Size = new System.Drawing.Size(1032, 660);
+            this.heightsTabPage.Size = new System.Drawing.Size(1032, 576);
             this.heightsTabPage.TabIndex = 2;
             this.heightsTabPage.Text = "Map Heights";
             this.heightsTabPage.UseVisualStyleBackColor = true;
@@ -2920,7 +2942,7 @@
             this.mapFilesTabPage.Controls.Add(this.mapFilesGridView);
             this.mapFilesTabPage.Location = new System.Drawing.Point(4, 22);
             this.mapFilesTabPage.Name = "mapFilesTabPage";
-            this.mapFilesTabPage.Size = new System.Drawing.Size(1032, 660);
+            this.mapFilesTabPage.Size = new System.Drawing.Size(1032, 576);
             this.mapFilesTabPage.TabIndex = 3;
             this.mapFilesTabPage.Text = "Map Files";
             this.mapFilesTabPage.UseVisualStyleBackColor = true;
@@ -3060,7 +3082,7 @@
             this.saveMatrixButton.Image = global::DSPRE.Properties.Resources.save_rom;
             this.saveMatrixButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.saveMatrixButton.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.saveMatrixButton.Location = new System.Drawing.Point(11, 650);
+            this.saveMatrixButton.Location = new System.Drawing.Point(11, 566);
             this.saveMatrixButton.Name = "saveMatrixButton";
             this.saveMatrixButton.Size = new System.Drawing.Size(117, 43);
             this.saveMatrixButton.TabIndex = 22;
@@ -3089,7 +3111,7 @@
             this.mapEditorTabPage.Location = new System.Drawing.Point(4, 23);
             this.mapEditorTabPage.Name = "mapEditorTabPage";
             this.mapEditorTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.mapEditorTabPage.Size = new System.Drawing.Size(1185, 703);
+            this.mapEditorTabPage.Size = new System.Drawing.Size(1185, 619);
             this.mapEditorTabPage.TabIndex = 2;
             this.mapEditorTabPage.Text = "Map Editor";
             this.mapEditorTabPage.Enter += new System.EventHandler(this.mapEditorTabPage_Enter);
@@ -4428,7 +4450,7 @@
             this.nsbtxEditorTabPage.Location = new System.Drawing.Point(4, 23);
             this.nsbtxEditorTabPage.Name = "nsbtxEditorTabPage";
             this.nsbtxEditorTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.nsbtxEditorTabPage.Size = new System.Drawing.Size(1185, 703);
+            this.nsbtxEditorTabPage.Size = new System.Drawing.Size(1185, 619);
             this.nsbtxEditorTabPage.TabIndex = 6;
             this.nsbtxEditorTabPage.Text = "NSBTX Editor";
             this.nsbtxEditorTabPage.UseVisualStyleBackColor = true;
@@ -4969,7 +4991,7 @@
             this.eventEditorTabPage.Location = new System.Drawing.Point(4, 23);
             this.eventEditorTabPage.Name = "eventEditorTabPage";
             this.eventEditorTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.eventEditorTabPage.Size = new System.Drawing.Size(1185, 703);
+            this.eventEditorTabPage.Size = new System.Drawing.Size(1185, 619);
             this.eventEditorTabPage.TabIndex = 3;
             this.eventEditorTabPage.Text = "Event Editor";
             this.eventEditorTabPage.Enter += new System.EventHandler(this.eventEditorTabPage_Enter);
@@ -7014,7 +7036,7 @@
             this.scriptEditorTabPage.Location = new System.Drawing.Point(4, 23);
             this.scriptEditorTabPage.Name = "scriptEditorTabPage";
             this.scriptEditorTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.scriptEditorTabPage.Size = new System.Drawing.Size(1185, 703);
+            this.scriptEditorTabPage.Size = new System.Drawing.Size(1185, 619);
             this.scriptEditorTabPage.TabIndex = 4;
             this.scriptEditorTabPage.Text = "Script Editor";
             this.scriptEditorTabPage.UseVisualStyleBackColor = true;
@@ -7753,7 +7775,7 @@
             this.textEditorTabPage.Location = new System.Drawing.Point(4, 23);
             this.textEditorTabPage.Name = "textEditorTabPage";
             this.textEditorTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.textEditorTabPage.Size = new System.Drawing.Size(1185, 703);
+            this.textEditorTabPage.Size = new System.Drawing.Size(1185, 619);
             this.textEditorTabPage.TabIndex = 5;
             this.textEditorTabPage.Text = "Text Editor";
             this.textEditorTabPage.UseVisualStyleBackColor = true;
@@ -8177,7 +8199,7 @@
             this.cameraEditorTabPage.ImageIndex = 7;
             this.cameraEditorTabPage.Location = new System.Drawing.Point(4, 23);
             this.cameraEditorTabPage.Name = "cameraEditorTabPage";
-            this.cameraEditorTabPage.Size = new System.Drawing.Size(1185, 703);
+            this.cameraEditorTabPage.Size = new System.Drawing.Size(1185, 619);
             this.cameraEditorTabPage.TabIndex = 7;
             this.cameraEditorTabPage.Text = "Camera Editor";
             this.cameraEditorTabPage.UseVisualStyleBackColor = true;
@@ -8358,10 +8380,6 @@
             // trainerEditorTabPage
             // 
             this.trainerEditorTabPage.Controls.Add(this.tableLayoutPanel4);
-            this.trainerEditorTabPage.Controls.Add(this.label74);
-            this.trainerEditorTabPage.Controls.Add(this.DVExplainButton);
-            this.trainerEditorTabPage.Controls.Add(this.deleteTrainerButton);
-            this.trainerEditorTabPage.Controls.Add(this.addTrainerButton);
             this.trainerEditorTabPage.Controls.Add(this.groupBox28);
             this.trainerEditorTabPage.Controls.Add(this.groupBox27);
             this.trainerEditorTabPage.Controls.Add(this.groupBox25);
@@ -8371,30 +8389,24 @@
             this.trainerEditorTabPage.ImageIndex = 8;
             this.trainerEditorTabPage.Location = new System.Drawing.Point(4, 23);
             this.trainerEditorTabPage.Name = "trainerEditorTabPage";
-            this.trainerEditorTabPage.Size = new System.Drawing.Size(1185, 703);
+            this.trainerEditorTabPage.Size = new System.Drawing.Size(1185, 619);
             this.trainerEditorTabPage.TabIndex = 8;
             this.trainerEditorTabPage.Text = "Trainer Editor";
             this.trainerEditorTabPage.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.ColumnCount = 4;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel4.ColumnCount = 1;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.0167F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel4.Controls.Add(this.exportTrainerButton, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.importTrainerButton, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.exportPropertiesButton, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.importReplacePropertiesButton, 2, 1);
-            this.tableLayoutPanel4.Controls.Add(this.importReplacePartyButton, 3, 1);
-            this.tableLayoutPanel4.Controls.Add(this.exportPartyButton, 3, 0);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(642, 9);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(219, 15);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(429, 62);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(128, 62);
             this.tableLayoutPanel4.TabIndex = 47;
             // 
             // exportTrainerButton
@@ -8404,9 +8416,9 @@
             this.exportTrainerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.exportTrainerButton.Location = new System.Drawing.Point(3, 3);
             this.exportTrainerButton.Name = "exportTrainerButton";
-            this.exportTrainerButton.Size = new System.Drawing.Size(130, 25);
+            this.exportTrainerButton.Size = new System.Drawing.Size(122, 25);
             this.exportTrainerButton.TabIndex = 42;
-            this.exportTrainerButton.Text = "Export Full Trainer";
+            this.exportTrainerButton.Text = "Export Full";
             this.exportTrainerButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.exportTrainerButton.UseVisualStyleBackColor = true;
             this.exportTrainerButton.Click += new System.EventHandler(this.exportTrainerButton_Click);
@@ -8418,117 +8430,87 @@
             this.importTrainerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.importTrainerButton.Location = new System.Drawing.Point(3, 34);
             this.importTrainerButton.Name = "importTrainerButton";
-            this.importTrainerButton.Size = new System.Drawing.Size(130, 25);
+            this.importTrainerButton.Size = new System.Drawing.Size(122, 25);
             this.importTrainerButton.TabIndex = 43;
-            this.importTrainerButton.Text = "Import Full Trainer";
+            this.importTrainerButton.Text = "Replace Full";
             this.importTrainerButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.importTrainerButton.UseVisualStyleBackColor = true;
             this.importTrainerButton.Click += new System.EventHandler(this.importTrainerButton_Click);
             // 
-            // exportPropertiesButton
+            // groupBox28
             // 
-            this.exportPropertiesButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.exportPropertiesButton.Image = ((System.Drawing.Image)(resources.GetObject("exportPropertiesButton.Image")));
-            this.exportPropertiesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.exportPropertiesButton.Location = new System.Drawing.Point(159, 3);
-            this.exportPropertiesButton.Name = "exportPropertiesButton";
-            this.exportPropertiesButton.Size = new System.Drawing.Size(130, 25);
-            this.exportPropertiesButton.TabIndex = 39;
-            this.exportPropertiesButton.Text = "Export Properties";
-            this.exportPropertiesButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.exportPropertiesButton.UseVisualStyleBackColor = true;
-            this.exportPropertiesButton.Click += new System.EventHandler(this.exportPropertiesButton_Click);
+            this.groupBox28.Controls.Add(this.tableLayoutPanel6);
+            this.groupBox28.Controls.Add(this.DVExplainButton);
+            this.groupBox28.Controls.Add(this.label74);
+            this.groupBox28.Controls.Add(this.party6GroupBox);
+            this.groupBox28.Controls.Add(this.party5GroupBox);
+            this.groupBox28.Controls.Add(this.party4GroupBox);
+            this.groupBox28.Controls.Add(this.party3GroupBox);
+            this.groupBox28.Controls.Add(this.party2GroupBox);
+            this.groupBox28.Controls.Add(this.party1GroupBox);
+            this.groupBox28.Location = new System.Drawing.Point(439, 3);
+            this.groupBox28.Name = "groupBox28";
+            this.groupBox28.Size = new System.Drawing.Size(731, 609);
+            this.groupBox28.TabIndex = 32;
+            this.groupBox28.TabStop = false;
+            this.groupBox28.Text = "Party";
             // 
-            // importReplacePropertiesButton
+            // tableLayoutPanel6
             // 
-            this.importReplacePropertiesButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.importReplacePropertiesButton.Image = ((System.Drawing.Image)(resources.GetObject("importReplacePropertiesButton.Image")));
-            this.importReplacePropertiesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.importReplacePropertiesButton.Location = new System.Drawing.Point(159, 34);
-            this.importReplacePropertiesButton.Name = "importReplacePropertiesButton";
-            this.importReplacePropertiesButton.Size = new System.Drawing.Size(130, 25);
-            this.importReplacePropertiesButton.TabIndex = 40;
-            this.importReplacePropertiesButton.Text = "Replace Properties";
-            this.importReplacePropertiesButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.importReplacePropertiesButton.UseVisualStyleBackColor = true;
-            this.importReplacePropertiesButton.Click += new System.EventHandler(this.importReplacePropertiesButton_Click);
+            this.tableLayoutPanel6.ColumnCount = 2;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.00001F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.Controls.Add(this.button3, 1, 0);
+            this.tableLayoutPanel6.Controls.Add(this.button4, 0, 0);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(471, 10);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(237, 29);
+            this.tableLayoutPanel6.TabIndex = 48;
             // 
-            // importReplacePartyButton
+            // button3
             // 
-            this.importReplacePartyButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.importReplacePartyButton.Image = ((System.Drawing.Image)(resources.GetObject("importReplacePartyButton.Image")));
-            this.importReplacePartyButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.importReplacePartyButton.Location = new System.Drawing.Point(295, 34);
-            this.importReplacePartyButton.Name = "importReplacePartyButton";
-            this.importReplacePartyButton.Size = new System.Drawing.Size(131, 25);
-            this.importReplacePartyButton.TabIndex = 41;
-            this.importReplacePartyButton.Text = "Replace Party";
-            this.importReplacePartyButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.importReplacePartyButton.UseVisualStyleBackColor = true;
-            this.importReplacePartyButton.Click += new System.EventHandler(this.importReplacePartyButton_Click);
+            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.Location = new System.Drawing.Point(121, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(113, 23);
+            this.button3.TabIndex = 41;
+            this.button3.Text = "Replace Party";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.UseVisualStyleBackColor = true;
             // 
-            // exportPartyButton
+            // button4
             // 
-            this.exportPartyButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.exportPartyButton.Image = ((System.Drawing.Image)(resources.GetObject("exportPartyButton.Image")));
-            this.exportPartyButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.exportPartyButton.Location = new System.Drawing.Point(295, 3);
-            this.exportPartyButton.Name = "exportPartyButton";
-            this.exportPartyButton.Size = new System.Drawing.Size(131, 25);
-            this.exportPartyButton.TabIndex = 38;
-            this.exportPartyButton.Text = "Export Party";
-            this.exportPartyButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.exportPartyButton.UseVisualStyleBackColor = true;
-            this.exportPartyButton.Click += new System.EventHandler(this.exportPartyButton_Click);
-            // 
-            // label74
-            // 
-            this.label74.AutoSize = true;
-            this.label74.Location = new System.Drawing.Point(1086, 26);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(78, 13);
-            this.label74.TabIndex = 46;
-            this.label74.Text = "Info about DVs";
+            this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button4.Location = new System.Drawing.Point(3, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(112, 23);
+            this.button4.TabIndex = 38;
+            this.button4.Text = "Export Party";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // DVExplainButton
             // 
             this.DVExplainButton.Image = ((System.Drawing.Image)(resources.GetObject("DVExplainButton.Image")));
-            this.DVExplainButton.Location = new System.Drawing.Point(1108, 41);
+            this.DVExplainButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.DVExplainButton.Location = new System.Drawing.Point(251, 11);
             this.DVExplainButton.Name = "DVExplainButton";
-            this.DVExplainButton.Size = new System.Drawing.Size(28, 29);
+            this.DVExplainButton.Size = new System.Drawing.Size(109, 29);
             this.DVExplainButton.TabIndex = 45;
-            this.DVExplainButton.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.DVExplainButton.Text = "Info about DVs";
+            this.DVExplainButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.DVExplainButton.UseVisualStyleBackColor = true;
             this.DVExplainButton.Click += new System.EventHandler(this.DVExplainButton_Click);
             // 
-            // deleteTrainerButton
-            // 
-            this.deleteTrainerButton.Enabled = false;
-            this.deleteTrainerButton.Image = global::DSPRE.Properties.Resources.deleteIcon;
-            this.deleteTrainerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.deleteTrainerButton.Location = new System.Drawing.Point(218, 49);
-            this.deleteTrainerButton.Name = "deleteTrainerButton";
-            this.deleteTrainerButton.Size = new System.Drawing.Size(116, 23);
-            this.deleteTrainerButton.TabIndex = 44;
-            this.deleteTrainerButton.Text = "Delete Trainer";
-            this.deleteTrainerButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.deleteTrainerButton.UseVisualStyleBackColor = true;
-            // 
-            // addTrainerButton
-            // 
-            this.addTrainerButton.Enabled = false;
-            this.addTrainerButton.Image = global::DSPRE.Properties.Resources.addIcon;
-            this.addTrainerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.addTrainerButton.Location = new System.Drawing.Point(218, 20);
-            this.addTrainerButton.Name = "addTrainerButton";
-            this.addTrainerButton.Size = new System.Drawing.Size(116, 23);
-            this.addTrainerButton.TabIndex = 35;
-            this.addTrainerButton.Text = "Add Trainer";
-            this.addTrainerButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addTrainerButton.UseVisualStyleBackColor = true;
-            this.addTrainerButton.Click += new System.EventHandler(this.addTrainerButton_Click);
-            // 
-            // groupBox28
+            // label74
             // 
             this.groupBox28.Controls.Add(this.party6GroupBox);
             this.groupBox28.Controls.Add(this.party5GroupBox);
@@ -8538,7 +8520,7 @@
             this.groupBox28.Controls.Add(this.party1GroupBox);
             this.groupBox28.Location = new System.Drawing.Point(439, 75);
             this.groupBox28.Name = "groupBox28";
-            this.groupBox28.Size = new System.Drawing.Size(731, 625);
+            this.groupBox28.Size = new System.Drawing.Size(731, 534);
             this.groupBox28.TabIndex = 32;
             this.groupBox28.TabStop = false;
             this.groupBox28.Text = "Party";
@@ -8560,41 +8542,12 @@
             this.party6GroupBox.Controls.Add(this.partyPokemon6PictureBox);
             this.party6GroupBox.Controls.Add(this.partyPokemon6ComboBox);
             this.party6GroupBox.Enabled = false;
-            this.party6GroupBox.Location = new System.Drawing.Point(371, 418);
+            this.party6GroupBox.Location = new System.Drawing.Point(371, 355);
             this.party6GroupBox.Name = "party6GroupBox";
-            this.party6GroupBox.Size = new System.Drawing.Size(343, 189);
+            this.party6GroupBox.Size = new System.Drawing.Size(343, 162);
             this.party6GroupBox.TabIndex = 13;
             this.party6GroupBox.TabStop = false;
             this.party6GroupBox.Text = "Pokemon 6";
-            // 
-            // partyForm6ComboBox
-            // 
-            this.partyForm6ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.partyForm6ComboBox.FormattingEnabled = true;
-            this.partyForm6ComboBox.Items.AddRange(new object[] {
-            "Defense form"});
-            this.partyForm6ComboBox.Location = new System.Drawing.Point(228, 157);
-            this.partyForm6ComboBox.Name = "partyForm6ComboBox";
-            this.partyForm6ComboBox.Size = new System.Drawing.Size(103, 21);
-            this.partyForm6ComboBox.TabIndex = 20;
-            // 
-            // partyAbility6ComboBox
-            // 
-            this.partyAbility6ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.partyAbility6ComboBox.FormattingEnabled = true;
-            this.partyAbility6ComboBox.Location = new System.Drawing.Point(15, 157);
-            this.partyAbility6ComboBox.Name = "partyAbility6ComboBox";
-            this.partyAbility6ComboBox.Size = new System.Drawing.Size(105, 21);
-            this.partyAbility6ComboBox.TabIndex = 19;
-            // 
-            // partyGender6ComboBox
-            // 
-            this.partyGender6ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.partyGender6ComboBox.FormattingEnabled = true;
-            this.partyGender6ComboBox.Location = new System.Drawing.Point(126, 157);
-            this.partyGender6ComboBox.Name = "partyGender6ComboBox";
-            this.partyGender6ComboBox.Size = new System.Drawing.Size(95, 21);
-            this.partyGender6ComboBox.TabIndex = 15;
             // 
             // partyPokemonItemPictureBox6
             // 
@@ -8609,7 +8562,7 @@
             // label60
             // 
             this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(12, 124);
+            this.label60.Location = new System.Drawing.Point(12, 118);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(28, 26);
             this.label60.TabIndex = 9;
@@ -8618,7 +8571,7 @@
             // label61
             // 
             this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(12, 100);
+            this.label61.Location = new System.Drawing.Point(12, 94);
             this.label61.Name = "label61";
             this.label61.Size = new System.Drawing.Size(22, 13);
             this.label61.TabIndex = 8;
@@ -8627,7 +8580,7 @@
             // label62
             // 
             this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(12, 73);
+            this.label62.Location = new System.Drawing.Point(12, 67);
             this.label62.Name = "label62";
             this.label62.Size = new System.Drawing.Size(22, 13);
             this.label62.TabIndex = 7;
@@ -8639,7 +8592,7 @@
             this.poke6MovesGroupBox.Controls.Add(this.partyMove6_2ComboBox);
             this.poke6MovesGroupBox.Controls.Add(this.partyMove6_3ComboBox);
             this.poke6MovesGroupBox.Controls.Add(this.partyMove6_4ComboBox);
-            this.poke6MovesGroupBox.Location = new System.Drawing.Point(110, 63);
+            this.poke6MovesGroupBox.Location = new System.Drawing.Point(110, 57);
             this.poke6MovesGroupBox.Name = "poke6MovesGroupBox";
             this.poke6MovesGroupBox.Size = new System.Drawing.Size(227, 85);
             this.poke6MovesGroupBox.TabIndex = 6;
@@ -8696,7 +8649,7 @@
             // 
             // partyIV6UpDown
             // 
-            this.partyIV6UpDown.Location = new System.Drawing.Point(48, 98);
+            this.partyIV6UpDown.Location = new System.Drawing.Point(48, 92);
             this.partyIV6UpDown.Maximum = new decimal(new int[] {
             255,
             0,
@@ -8708,7 +8661,7 @@
             // 
             // partyLevel6UpDown
             // 
-            this.partyLevel6UpDown.Location = new System.Drawing.Point(48, 69);
+            this.partyLevel6UpDown.Location = new System.Drawing.Point(48, 63);
             this.partyLevel6UpDown.Minimum = new decimal(new int[] {
             1,
             0,
@@ -8725,7 +8678,7 @@
             // 
             // partyBall6UpDown
             // 
-            this.partyBall6UpDown.Location = new System.Drawing.Point(48, 127);
+            this.partyBall6UpDown.Location = new System.Drawing.Point(48, 121);
             this.partyBall6UpDown.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -8784,41 +8737,12 @@
             this.party5GroupBox.Controls.Add(this.partyPokemon5PictureBox);
             this.party5GroupBox.Controls.Add(this.partyPokemon5ComboBox);
             this.party5GroupBox.Enabled = false;
-            this.party5GroupBox.Location = new System.Drawing.Point(16, 418);
+            this.party5GroupBox.Location = new System.Drawing.Point(16, 355);
             this.party5GroupBox.Name = "party5GroupBox";
-            this.party5GroupBox.Size = new System.Drawing.Size(343, 189);
+            this.party5GroupBox.Size = new System.Drawing.Size(343, 162);
             this.party5GroupBox.TabIndex = 12;
             this.party5GroupBox.TabStop = false;
             this.party5GroupBox.Text = "Pokemon 5";
-            // 
-            // partyForm5ComboBox
-            // 
-            this.partyForm5ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.partyForm5ComboBox.FormattingEnabled = true;
-            this.partyForm5ComboBox.Items.AddRange(new object[] {
-            "Defense form"});
-            this.partyForm5ComboBox.Location = new System.Drawing.Point(228, 157);
-            this.partyForm5ComboBox.Name = "partyForm5ComboBox";
-            this.partyForm5ComboBox.Size = new System.Drawing.Size(103, 21);
-            this.partyForm5ComboBox.TabIndex = 19;
-            // 
-            // partyAbility5ComboBox
-            // 
-            this.partyAbility5ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.partyAbility5ComboBox.FormattingEnabled = true;
-            this.partyAbility5ComboBox.Location = new System.Drawing.Point(15, 157);
-            this.partyAbility5ComboBox.Name = "partyAbility5ComboBox";
-            this.partyAbility5ComboBox.Size = new System.Drawing.Size(105, 21);
-            this.partyAbility5ComboBox.TabIndex = 18;
-            // 
-            // partyGender5ComboBox
-            // 
-            this.partyGender5ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.partyGender5ComboBox.FormattingEnabled = true;
-            this.partyGender5ComboBox.Location = new System.Drawing.Point(126, 157);
-            this.partyGender5ComboBox.Name = "partyGender5ComboBox";
-            this.partyGender5ComboBox.Size = new System.Drawing.Size(95, 21);
-            this.partyGender5ComboBox.TabIndex = 14;
             // 
             // partyPokemonItemPictureBox5
             // 
@@ -8833,7 +8757,7 @@
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(12, 124);
+            this.label57.Location = new System.Drawing.Point(12, 118);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(28, 26);
             this.label57.TabIndex = 9;
@@ -8842,7 +8766,7 @@
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(12, 100);
+            this.label58.Location = new System.Drawing.Point(12, 94);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(22, 13);
             this.label58.TabIndex = 8;
@@ -8851,7 +8775,7 @@
             // label59
             // 
             this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(12, 73);
+            this.label59.Location = new System.Drawing.Point(12, 67);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(22, 13);
             this.label59.TabIndex = 7;
@@ -8863,7 +8787,7 @@
             this.poke5MovesGroupBox.Controls.Add(this.partyMove5_2ComboBox);
             this.poke5MovesGroupBox.Controls.Add(this.partyMove5_3ComboBox);
             this.poke5MovesGroupBox.Controls.Add(this.partyMove5_4ComboBox);
-            this.poke5MovesGroupBox.Location = new System.Drawing.Point(110, 63);
+            this.poke5MovesGroupBox.Location = new System.Drawing.Point(110, 57);
             this.poke5MovesGroupBox.Name = "poke5MovesGroupBox";
             this.poke5MovesGroupBox.Size = new System.Drawing.Size(227, 85);
             this.poke5MovesGroupBox.TabIndex = 6;
@@ -8920,7 +8844,7 @@
             // 
             // partyIV5UpDown
             // 
-            this.partyIV5UpDown.Location = new System.Drawing.Point(48, 98);
+            this.partyIV5UpDown.Location = new System.Drawing.Point(48, 92);
             this.partyIV5UpDown.Maximum = new decimal(new int[] {
             255,
             0,
@@ -8932,7 +8856,7 @@
             // 
             // partyLevel5UpDown
             // 
-            this.partyLevel5UpDown.Location = new System.Drawing.Point(48, 69);
+            this.partyLevel5UpDown.Location = new System.Drawing.Point(48, 63);
             this.partyLevel5UpDown.Minimum = new decimal(new int[] {
             1,
             0,
@@ -8949,7 +8873,7 @@
             // 
             // partyBall5UpDown
             // 
-            this.partyBall5UpDown.Location = new System.Drawing.Point(48, 127);
+            this.partyBall5UpDown.Location = new System.Drawing.Point(48, 121);
             this.partyBall5UpDown.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -9008,41 +8932,12 @@
             this.party4GroupBox.Controls.Add(this.partyPokemon4PictureBox);
             this.party4GroupBox.Controls.Add(this.partyPokemon4ComboBox);
             this.party4GroupBox.Enabled = false;
-            this.party4GroupBox.Location = new System.Drawing.Point(371, 225);
+            this.party4GroupBox.Location = new System.Drawing.Point(371, 189);
             this.party4GroupBox.Name = "party4GroupBox";
-            this.party4GroupBox.Size = new System.Drawing.Size(343, 185);
+            this.party4GroupBox.Size = new System.Drawing.Size(343, 162);
             this.party4GroupBox.TabIndex = 11;
             this.party4GroupBox.TabStop = false;
             this.party4GroupBox.Text = "Pokemon 4";
-            // 
-            // partyForm4ComboBox
-            // 
-            this.partyForm4ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.partyForm4ComboBox.FormattingEnabled = true;
-            this.partyForm4ComboBox.Items.AddRange(new object[] {
-            "Defense form"});
-            this.partyForm4ComboBox.Location = new System.Drawing.Point(228, 157);
-            this.partyForm4ComboBox.Name = "partyForm4ComboBox";
-            this.partyForm4ComboBox.Size = new System.Drawing.Size(103, 21);
-            this.partyForm4ComboBox.TabIndex = 18;
-            // 
-            // partyAbility4ComboBox
-            // 
-            this.partyAbility4ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.partyAbility4ComboBox.FormattingEnabled = true;
-            this.partyAbility4ComboBox.Location = new System.Drawing.Point(15, 157);
-            this.partyAbility4ComboBox.Name = "partyAbility4ComboBox";
-            this.partyAbility4ComboBox.Size = new System.Drawing.Size(105, 21);
-            this.partyAbility4ComboBox.TabIndex = 17;
-            // 
-            // partyGender4ComboBox
-            // 
-            this.partyGender4ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.partyGender4ComboBox.FormattingEnabled = true;
-            this.partyGender4ComboBox.Location = new System.Drawing.Point(126, 157);
-            this.partyGender4ComboBox.Name = "partyGender4ComboBox";
-            this.partyGender4ComboBox.Size = new System.Drawing.Size(95, 21);
-            this.partyGender4ComboBox.TabIndex = 16;
             // 
             // partyPokemonItemPictureBox4
             // 
@@ -9057,7 +8952,7 @@
             // label54
             // 
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(12, 124);
+            this.label54.Location = new System.Drawing.Point(12, 118);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(28, 26);
             this.label54.TabIndex = 9;
@@ -9066,7 +8961,7 @@
             // label55
             // 
             this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(12, 100);
+            this.label55.Location = new System.Drawing.Point(12, 94);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(22, 13);
             this.label55.TabIndex = 8;
@@ -9075,7 +8970,7 @@
             // label56
             // 
             this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(12, 73);
+            this.label56.Location = new System.Drawing.Point(12, 67);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(22, 13);
             this.label56.TabIndex = 7;
@@ -9087,7 +8982,7 @@
             this.poke4MovesGroupBox.Controls.Add(this.partyMove4_2ComboBox);
             this.poke4MovesGroupBox.Controls.Add(this.partyMove4_3ComboBox);
             this.poke4MovesGroupBox.Controls.Add(this.partyMove4_4ComboBox);
-            this.poke4MovesGroupBox.Location = new System.Drawing.Point(110, 63);
+            this.poke4MovesGroupBox.Location = new System.Drawing.Point(110, 57);
             this.poke4MovesGroupBox.Name = "poke4MovesGroupBox";
             this.poke4MovesGroupBox.Size = new System.Drawing.Size(227, 85);
             this.poke4MovesGroupBox.TabIndex = 6;
@@ -9144,7 +9039,7 @@
             // 
             // partyIV4UpDown
             // 
-            this.partyIV4UpDown.Location = new System.Drawing.Point(48, 98);
+            this.partyIV4UpDown.Location = new System.Drawing.Point(48, 92);
             this.partyIV4UpDown.Maximum = new decimal(new int[] {
             255,
             0,
@@ -9156,7 +9051,7 @@
             // 
             // partyLevel4UpDown
             // 
-            this.partyLevel4UpDown.Location = new System.Drawing.Point(48, 69);
+            this.partyLevel4UpDown.Location = new System.Drawing.Point(48, 63);
             this.partyLevel4UpDown.Minimum = new decimal(new int[] {
             1,
             0,
@@ -9173,7 +9068,7 @@
             // 
             // partyBall4UpDown
             // 
-            this.partyBall4UpDown.Location = new System.Drawing.Point(48, 127);
+            this.partyBall4UpDown.Location = new System.Drawing.Point(48, 121);
             this.partyBall4UpDown.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -9232,41 +9127,12 @@
             this.party3GroupBox.Controls.Add(this.partyPokemon3PictureBox);
             this.party3GroupBox.Controls.Add(this.partyPokemon3ComboBox);
             this.party3GroupBox.Enabled = false;
-            this.party3GroupBox.Location = new System.Drawing.Point(16, 225);
+            this.party3GroupBox.Location = new System.Drawing.Point(16, 189);
             this.party3GroupBox.Name = "party3GroupBox";
-            this.party3GroupBox.Size = new System.Drawing.Size(343, 187);
+            this.party3GroupBox.Size = new System.Drawing.Size(343, 162);
             this.party3GroupBox.TabIndex = 10;
             this.party3GroupBox.TabStop = false;
             this.party3GroupBox.Text = "Pokemon 3";
-            // 
-            // partyForm3ComboBox
-            // 
-            this.partyForm3ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.partyForm3ComboBox.FormattingEnabled = true;
-            this.partyForm3ComboBox.Items.AddRange(new object[] {
-            "Defense form"});
-            this.partyForm3ComboBox.Location = new System.Drawing.Point(228, 157);
-            this.partyForm3ComboBox.Name = "partyForm3ComboBox";
-            this.partyForm3ComboBox.Size = new System.Drawing.Size(103, 21);
-            this.partyForm3ComboBox.TabIndex = 15;
-            // 
-            // partyAbility3ComboBox
-            // 
-            this.partyAbility3ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.partyAbility3ComboBox.FormattingEnabled = true;
-            this.partyAbility3ComboBox.Location = new System.Drawing.Point(15, 157);
-            this.partyAbility3ComboBox.Name = "partyAbility3ComboBox";
-            this.partyAbility3ComboBox.Size = new System.Drawing.Size(105, 21);
-            this.partyAbility3ComboBox.TabIndex = 14;
-            // 
-            // partyGender3ComboBox
-            // 
-            this.partyGender3ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.partyGender3ComboBox.FormattingEnabled = true;
-            this.partyGender3ComboBox.Location = new System.Drawing.Point(126, 157);
-            this.partyGender3ComboBox.Name = "partyGender3ComboBox";
-            this.partyGender3ComboBox.Size = new System.Drawing.Size(95, 21);
-            this.partyGender3ComboBox.TabIndex = 13;
             // 
             // partyPokemonItemPictureBox3
             // 
@@ -9281,7 +9147,7 @@
             // label51
             // 
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(12, 124);
+            this.label51.Location = new System.Drawing.Point(12, 118);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(28, 26);
             this.label51.TabIndex = 9;
@@ -9290,7 +9156,7 @@
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(12, 100);
+            this.label52.Location = new System.Drawing.Point(12, 94);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(22, 13);
             this.label52.TabIndex = 8;
@@ -9299,7 +9165,7 @@
             // label53
             // 
             this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(12, 73);
+            this.label53.Location = new System.Drawing.Point(12, 67);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(22, 13);
             this.label53.TabIndex = 7;
@@ -9311,7 +9177,7 @@
             this.poke3MovesGroupBox.Controls.Add(this.partyMove3_2ComboBox);
             this.poke3MovesGroupBox.Controls.Add(this.partyMove3_3ComboBox);
             this.poke3MovesGroupBox.Controls.Add(this.partyMove3_4ComboBox);
-            this.poke3MovesGroupBox.Location = new System.Drawing.Point(110, 63);
+            this.poke3MovesGroupBox.Location = new System.Drawing.Point(110, 57);
             this.poke3MovesGroupBox.Name = "poke3MovesGroupBox";
             this.poke3MovesGroupBox.Size = new System.Drawing.Size(227, 85);
             this.poke3MovesGroupBox.TabIndex = 6;
@@ -9368,7 +9234,7 @@
             // 
             // partyIV3UpDown
             // 
-            this.partyIV3UpDown.Location = new System.Drawing.Point(48, 98);
+            this.partyIV3UpDown.Location = new System.Drawing.Point(48, 92);
             this.partyIV3UpDown.Maximum = new decimal(new int[] {
             255,
             0,
@@ -9380,7 +9246,7 @@
             // 
             // partyLevel3UpDown
             // 
-            this.partyLevel3UpDown.Location = new System.Drawing.Point(48, 69);
+            this.partyLevel3UpDown.Location = new System.Drawing.Point(48, 63);
             this.partyLevel3UpDown.Minimum = new decimal(new int[] {
             1,
             0,
@@ -9397,7 +9263,7 @@
             // 
             // partyBall3UpDown
             // 
-            this.partyBall3UpDown.Location = new System.Drawing.Point(48, 127);
+            this.partyBall3UpDown.Location = new System.Drawing.Point(48, 121);
             this.partyBall3UpDown.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -9456,41 +9322,12 @@
             this.party2GroupBox.Controls.Add(this.partyPokemon2PictureBox);
             this.party2GroupBox.Controls.Add(this.partyPokemon2ComboBox);
             this.party2GroupBox.Enabled = false;
-            this.party2GroupBox.Location = new System.Drawing.Point(371, 23);
+            this.party2GroupBox.Location = new System.Drawing.Point(371, 37);
             this.party2GroupBox.Name = "party2GroupBox";
-            this.party2GroupBox.Size = new System.Drawing.Size(343, 196);
+            this.party2GroupBox.Size = new System.Drawing.Size(343, 162);
             this.party2GroupBox.TabIndex = 10;
             this.party2GroupBox.TabStop = false;
             this.party2GroupBox.Text = "Pokemon 2";
-            // 
-            // partyForm2ComboBox
-            // 
-            this.partyForm2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.partyForm2ComboBox.FormattingEnabled = true;
-            this.partyForm2ComboBox.Items.AddRange(new object[] {
-            "Defense form"});
-            this.partyForm2ComboBox.Location = new System.Drawing.Point(228, 162);
-            this.partyForm2ComboBox.Name = "partyForm2ComboBox";
-            this.partyForm2ComboBox.Size = new System.Drawing.Size(103, 21);
-            this.partyForm2ComboBox.TabIndex = 20;
-            // 
-            // partyAbility2ComboBox
-            // 
-            this.partyAbility2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.partyAbility2ComboBox.FormattingEnabled = true;
-            this.partyAbility2ComboBox.Location = new System.Drawing.Point(15, 162);
-            this.partyAbility2ComboBox.Name = "partyAbility2ComboBox";
-            this.partyAbility2ComboBox.Size = new System.Drawing.Size(105, 21);
-            this.partyAbility2ComboBox.TabIndex = 18;
-            // 
-            // partyGender2ComboBox
-            // 
-            this.partyGender2ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.partyGender2ComboBox.FormattingEnabled = true;
-            this.partyGender2ComboBox.Location = new System.Drawing.Point(126, 162);
-            this.partyGender2ComboBox.Name = "partyGender2ComboBox";
-            this.partyGender2ComboBox.Size = new System.Drawing.Size(95, 21);
-            this.partyGender2ComboBox.TabIndex = 17;
             // 
             // partyPokemonItemPictureBox2
             // 
@@ -9505,7 +9342,7 @@
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(12, 124);
+            this.label48.Location = new System.Drawing.Point(12, 118);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(28, 26);
             this.label48.TabIndex = 9;
@@ -9514,7 +9351,7 @@
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(12, 100);
+            this.label49.Location = new System.Drawing.Point(12, 94);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(22, 13);
             this.label49.TabIndex = 8;
@@ -9523,7 +9360,7 @@
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(12, 73);
+            this.label50.Location = new System.Drawing.Point(12, 67);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(22, 13);
             this.label50.TabIndex = 7;
@@ -9535,7 +9372,7 @@
             this.poke2MovesGroupBox.Controls.Add(this.partyMove2_2ComboBox);
             this.poke2MovesGroupBox.Controls.Add(this.partyMove2_3ComboBox);
             this.poke2MovesGroupBox.Controls.Add(this.partyMove2_4ComboBox);
-            this.poke2MovesGroupBox.Location = new System.Drawing.Point(110, 63);
+            this.poke2MovesGroupBox.Location = new System.Drawing.Point(110, 57);
             this.poke2MovesGroupBox.Name = "poke2MovesGroupBox";
             this.poke2MovesGroupBox.Size = new System.Drawing.Size(227, 85);
             this.poke2MovesGroupBox.TabIndex = 6;
@@ -9592,7 +9429,7 @@
             // 
             // partyIV2UpDown
             // 
-            this.partyIV2UpDown.Location = new System.Drawing.Point(48, 98);
+            this.partyIV2UpDown.Location = new System.Drawing.Point(48, 92);
             this.partyIV2UpDown.Maximum = new decimal(new int[] {
             255,
             0,
@@ -9604,7 +9441,7 @@
             // 
             // partyLevel2UpDown
             // 
-            this.partyLevel2UpDown.Location = new System.Drawing.Point(48, 69);
+            this.partyLevel2UpDown.Location = new System.Drawing.Point(48, 63);
             this.partyLevel2UpDown.Minimum = new decimal(new int[] {
             1,
             0,
@@ -9621,7 +9458,7 @@
             // 
             // partyBall2UpDown
             // 
-            this.partyBall2UpDown.Location = new System.Drawing.Point(48, 127);
+            this.partyBall2UpDown.Location = new System.Drawing.Point(48, 121);
             this.partyBall2UpDown.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -9680,41 +9517,12 @@
             this.party1GroupBox.Controls.Add(this.partyPokemon1PictureBox);
             this.party1GroupBox.Controls.Add(this.partyPokemon1ComboBox);
             this.party1GroupBox.Enabled = false;
-            this.party1GroupBox.Location = new System.Drawing.Point(16, 23);
+            this.party1GroupBox.Location = new System.Drawing.Point(16, 37);
             this.party1GroupBox.Name = "party1GroupBox";
-            this.party1GroupBox.Size = new System.Drawing.Size(343, 196);
+            this.party1GroupBox.Size = new System.Drawing.Size(343, 162);
             this.party1GroupBox.TabIndex = 0;
             this.party1GroupBox.TabStop = false;
             this.party1GroupBox.Text = "Pokemon 1";
-            // 
-            // partyForm1ComboBox
-            // 
-            this.partyForm1ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.partyForm1ComboBox.FormattingEnabled = true;
-            this.partyForm1ComboBox.Items.AddRange(new object[] {
-            "Defense form"});
-            this.partyForm1ComboBox.Location = new System.Drawing.Point(228, 162);
-            this.partyForm1ComboBox.Name = "partyForm1ComboBox";
-            this.partyForm1ComboBox.Size = new System.Drawing.Size(103, 21);
-            this.partyForm1ComboBox.TabIndex = 14;
-            // 
-            // partyAbility1ComboBox
-            // 
-            this.partyAbility1ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.partyAbility1ComboBox.FormattingEnabled = true;
-            this.partyAbility1ComboBox.Location = new System.Drawing.Point(15, 162);
-            this.partyAbility1ComboBox.Name = "partyAbility1ComboBox";
-            this.partyAbility1ComboBox.Size = new System.Drawing.Size(105, 21);
-            this.partyAbility1ComboBox.TabIndex = 13;
-            // 
-            // partyGender1ComboBox
-            // 
-            this.partyGender1ComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.partyGender1ComboBox.FormattingEnabled = true;
-            this.partyGender1ComboBox.Location = new System.Drawing.Point(126, 162);
-            this.partyGender1ComboBox.Name = "partyGender1ComboBox";
-            this.partyGender1ComboBox.Size = new System.Drawing.Size(95, 21);
-            this.partyGender1ComboBox.TabIndex = 12;
             // 
             // partyPokemonItemPictureBox1
             // 
@@ -9729,7 +9537,7 @@
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(12, 124);
+            this.label47.Location = new System.Drawing.Point(12, 118);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(28, 26);
             this.label47.TabIndex = 9;
@@ -9738,7 +9546,7 @@
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(12, 100);
+            this.label46.Location = new System.Drawing.Point(12, 94);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(22, 13);
             this.label46.TabIndex = 8;
@@ -9747,7 +9555,7 @@
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(12, 73);
+            this.label45.Location = new System.Drawing.Point(12, 67);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(22, 13);
             this.label45.TabIndex = 7;
@@ -9759,7 +9567,7 @@
             this.poke1MovesGroupBox.Controls.Add(this.partyMove1_2ComboBox);
             this.poke1MovesGroupBox.Controls.Add(this.partyMove1_3ComboBox);
             this.poke1MovesGroupBox.Controls.Add(this.partyMove1_4ComboBox);
-            this.poke1MovesGroupBox.Location = new System.Drawing.Point(110, 63);
+            this.poke1MovesGroupBox.Location = new System.Drawing.Point(110, 57);
             this.poke1MovesGroupBox.Name = "poke1MovesGroupBox";
             this.poke1MovesGroupBox.Size = new System.Drawing.Size(227, 85);
             this.poke1MovesGroupBox.TabIndex = 6;
@@ -9816,7 +9624,7 @@
             // 
             // partyIV1UpDown
             // 
-            this.partyIV1UpDown.Location = new System.Drawing.Point(48, 98);
+            this.partyIV1UpDown.Location = new System.Drawing.Point(48, 92);
             this.partyIV1UpDown.Maximum = new decimal(new int[] {
             255,
             0,
@@ -9828,7 +9636,7 @@
             // 
             // partyLevel1UpDown
             // 
-            this.partyLevel1UpDown.Location = new System.Drawing.Point(48, 69);
+            this.partyLevel1UpDown.Location = new System.Drawing.Point(48, 63);
             this.partyLevel1UpDown.Minimum = new decimal(new int[] {
             1,
             0,
@@ -9845,7 +9653,7 @@
             // 
             // partyBall1UpDown
             // 
-            this.partyBall1UpDown.Location = new System.Drawing.Point(48, 127);
+            this.partyBall1UpDown.Location = new System.Drawing.Point(48, 121);
             this.partyBall1UpDown.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -9900,12 +9708,12 @@
             this.groupBox27.Controls.Add(this.trainerClassNameTextbox);
             this.groupBox27.Controls.Add(this.label17);
             this.groupBox27.Controls.Add(this.trainerClassPicBox);
-            this.groupBox27.Location = new System.Drawing.Point(15, 486);
+            this.groupBox27.Location = new System.Drawing.Point(15, 489);
             this.groupBox27.Name = "groupBox27";
             this.groupBox27.Size = new System.Drawing.Size(414, 123);
             this.groupBox27.TabIndex = 30;
             this.groupBox27.TabStop = false;
-            this.groupBox27.Text = "Trainer Class";
+            this.groupBox27.Text = "Trainer Class Editor";
             // 
             // eyeContactMusicAltLabel
             // 
@@ -9980,9 +9788,9 @@
             // 
             this.saveTrainerClassButton.Image = global::DSPRE.Properties.Resources.save_rom;
             this.saveTrainerClassButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.saveTrainerClassButton.Location = new System.Drawing.Point(327, 15);
+            this.saveTrainerClassButton.Location = new System.Drawing.Point(322, 15);
             this.saveTrainerClassButton.Name = "saveTrainerClassButton";
-            this.saveTrainerClassButton.Size = new System.Drawing.Size(75, 45);
+            this.saveTrainerClassButton.Size = new System.Drawing.Size(80, 45);
             this.saveTrainerClassButton.TabIndex = 29;
             this.saveTrainerClassButton.Text = "&Save\r\nClass";
             this.saveTrainerClassButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -9991,15 +9799,15 @@
             // 
             // trainerClassNameTextbox
             // 
-            this.trainerClassNameTextbox.Location = new System.Drawing.Point(221, 29);
+            this.trainerClassNameTextbox.Location = new System.Drawing.Point(213, 29);
             this.trainerClassNameTextbox.Name = "trainerClassNameTextbox";
-            this.trainerClassNameTextbox.Size = new System.Drawing.Size(95, 20);
+            this.trainerClassNameTextbox.Size = new System.Drawing.Size(99, 20);
             this.trainerClassNameTextbox.TabIndex = 24;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(218, 13);
+            this.label17.Location = new System.Drawing.Point(210, 13);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(63, 13);
             this.label17.TabIndex = 23;
@@ -10017,9 +9825,12 @@
             // 
             // groupBox25
             // 
+            this.groupBox25.Controls.Add(this.tableLayoutPanel5);
             this.groupBox25.Controls.Add(this.TrainerAIGroupBox);
             this.groupBox25.Controls.Add(this.trainerItemsGroupBox);
+            this.groupBox25.Controls.Add(this.deleteTrainerButton);
             this.groupBox25.Controls.Add(this.trainerItemsCheckBox);
+            this.groupBox25.Controls.Add(this.addTrainerButton);
             this.groupBox25.Controls.Add(this.trainerMovesCheckBox);
             this.groupBox25.Controls.Add(this.trainerDoubleCheckBox);
             this.groupBox25.Controls.Add(this.trainerNameTextBox);
@@ -10033,7 +9844,53 @@
             this.groupBox25.Size = new System.Drawing.Size(414, 405);
             this.groupBox25.TabIndex = 29;
             this.groupBox25.TabStop = false;
-            this.groupBox25.Text = "Trainer Properties";
+            this.groupBox25.Text = "Trainer Properties [TRP]";
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.Controls.Add(this.replacePropertiesButton, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.exportPropertiesButton, 0, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(288, 304);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(121, 62);
+            this.tableLayoutPanel5.TabIndex = 48;
+            // 
+            // replacePropertiesButton
+            // 
+            this.replacePropertiesButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.replacePropertiesButton.Image = ((System.Drawing.Image)(resources.GetObject("replacePropertiesButton.Image")));
+            this.replacePropertiesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.replacePropertiesButton.Location = new System.Drawing.Point(3, 34);
+            this.replacePropertiesButton.Name = "replacePropertiesButton";
+            this.replacePropertiesButton.Size = new System.Drawing.Size(115, 25);
+            this.replacePropertiesButton.TabIndex = 42;
+            this.replacePropertiesButton.Text = "Replace TRP";
+            this.replacePropertiesButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.replacePropertiesButton.UseVisualStyleBackColor = true;
+            this.replacePropertiesButton.Click += new System.EventHandler(this.replacePropertiesButton_Click);
+            // 
+            // exportPropertiesButton
+            // 
+            this.exportPropertiesButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.exportPropertiesButton.Image = ((System.Drawing.Image)(resources.GetObject("exportPropertiesButton.Image")));
+            this.exportPropertiesButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.exportPropertiesButton.Location = new System.Drawing.Point(3, 3);
+            this.exportPropertiesButton.Name = "exportPropertiesButton";
+            this.exportPropertiesButton.Size = new System.Drawing.Size(115, 25);
+            this.exportPropertiesButton.TabIndex = 41;
+            this.exportPropertiesButton.Text = "Export TRP";
+            this.exportPropertiesButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.exportPropertiesButton.UseVisualStyleBackColor = true;
+            this.exportPropertiesButton.Click += new System.EventHandler(this.exportPropertiesButton_Click);
             // 
             // TrainerAIGroupBox
             // 
@@ -10050,7 +9907,7 @@
             this.TrainerAIGroupBox.Controls.Add(this.trainerAI11CheckBox);
             this.TrainerAIGroupBox.Location = new System.Drawing.Point(9, 282);
             this.TrainerAIGroupBox.Name = "TrainerAIGroupBox";
-            this.TrainerAIGroupBox.Size = new System.Drawing.Size(393, 116);
+            this.TrainerAIGroupBox.Size = new System.Drawing.Size(272, 116);
             this.TrainerAIGroupBox.TabIndex = 27;
             this.TrainerAIGroupBox.TabStop = false;
             this.TrainerAIGroupBox.Text = "AI";
@@ -10058,7 +9915,7 @@
             // trainerAI1CheckBox
             // 
             this.trainerAI1CheckBox.AutoSize = true;
-            this.trainerAI1CheckBox.Location = new System.Drawing.Point(16, 21);
+            this.trainerAI1CheckBox.Location = new System.Drawing.Point(10, 21);
             this.trainerAI1CheckBox.Name = "trainerAI1CheckBox";
             this.trainerAI1CheckBox.Size = new System.Drawing.Size(52, 17);
             this.trainerAI1CheckBox.TabIndex = 0;
@@ -10068,7 +9925,7 @@
             // trainerAI2CheckBox
             // 
             this.trainerAI2CheckBox.AutoSize = true;
-            this.trainerAI2CheckBox.Location = new System.Drawing.Point(16, 44);
+            this.trainerAI2CheckBox.Location = new System.Drawing.Point(80, 21);
             this.trainerAI2CheckBox.Name = "trainerAI2CheckBox";
             this.trainerAI2CheckBox.Size = new System.Drawing.Size(102, 17);
             this.trainerAI2CheckBox.TabIndex = 1;
@@ -10078,7 +9935,7 @@
             // trainerAI3CheckBox
             // 
             this.trainerAI3CheckBox.AutoSize = true;
-            this.trainerAI3CheckBox.Location = new System.Drawing.Point(16, 67);
+            this.trainerAI3CheckBox.Location = new System.Drawing.Point(10, 44);
             this.trainerAI3CheckBox.Name = "trainerAI3CheckBox";
             this.trainerAI3CheckBox.Size = new System.Drawing.Size(56, 17);
             this.trainerAI3CheckBox.TabIndex = 2;
@@ -10088,7 +9945,7 @@
             // trainerAI4CheckBox
             // 
             this.trainerAI4CheckBox.AutoSize = true;
-            this.trainerAI4CheckBox.Location = new System.Drawing.Point(16, 90);
+            this.trainerAI4CheckBox.Location = new System.Drawing.Point(10, 90);
             this.trainerAI4CheckBox.Name = "trainerAI4CheckBox";
             this.trainerAI4CheckBox.Size = new System.Drawing.Size(56, 17);
             this.trainerAI4CheckBox.TabIndex = 3;
@@ -10098,7 +9955,7 @@
             // trainerAI5CheckBox
             // 
             this.trainerAI5CheckBox.AutoSize = true;
-            this.trainerAI5CheckBox.Location = new System.Drawing.Point(138, 21);
+            this.trainerAI5CheckBox.Location = new System.Drawing.Point(10, 67);
             this.trainerAI5CheckBox.Name = "trainerAI5CheckBox";
             this.trainerAI5CheckBox.Size = new System.Drawing.Size(47, 17);
             this.trainerAI5CheckBox.TabIndex = 4;
@@ -10108,7 +9965,7 @@
             // trainerAI6CheckBox
             // 
             this.trainerAI6CheckBox.AutoSize = true;
-            this.trainerAI6CheckBox.Location = new System.Drawing.Point(138, 44);
+            this.trainerAI6CheckBox.Location = new System.Drawing.Point(80, 44);
             this.trainerAI6CheckBox.Name = "trainerAI6CheckBox";
             this.trainerAI6CheckBox.Size = new System.Drawing.Size(100, 17);
             this.trainerAI6CheckBox.TabIndex = 5;
@@ -10118,7 +9975,7 @@
             // trainerAI7CheckBox
             // 
             this.trainerAI7CheckBox.AutoSize = true;
-            this.trainerAI7CheckBox.Location = new System.Drawing.Point(138, 67);
+            this.trainerAI7CheckBox.Location = new System.Drawing.Point(80, 67);
             this.trainerAI7CheckBox.Name = "trainerAI7CheckBox";
             this.trainerAI7CheckBox.Size = new System.Drawing.Size(80, 17);
             this.trainerAI7CheckBox.TabIndex = 6;
@@ -10128,7 +9985,7 @@
             // trainerAI8CheckBox
             // 
             this.trainerAI8CheckBox.AutoSize = true;
-            this.trainerAI8CheckBox.Location = new System.Drawing.Point(138, 90);
+            this.trainerAI8CheckBox.Location = new System.Drawing.Point(80, 90);
             this.trainerAI8CheckBox.Name = "trainerAI8CheckBox";
             this.trainerAI8CheckBox.Size = new System.Drawing.Size(87, 17);
             this.trainerAI8CheckBox.TabIndex = 7;
@@ -10138,7 +9995,7 @@
             // trainerAI9CheckBox
             // 
             this.trainerAI9CheckBox.AutoSize = true;
-            this.trainerAI9CheckBox.Location = new System.Drawing.Point(271, 21);
+            this.trainerAI9CheckBox.Location = new System.Drawing.Point(191, 21);
             this.trainerAI9CheckBox.Name = "trainerAI9CheckBox";
             this.trainerAI9CheckBox.Size = new System.Drawing.Size(75, 17);
             this.trainerAI9CheckBox.TabIndex = 8;
@@ -10148,7 +10005,7 @@
             // trainerAI10CheckBox
             // 
             this.trainerAI10CheckBox.AutoSize = true;
-            this.trainerAI10CheckBox.Location = new System.Drawing.Point(271, 44);
+            this.trainerAI10CheckBox.Location = new System.Drawing.Point(191, 44);
             this.trainerAI10CheckBox.Name = "trainerAI10CheckBox";
             this.trainerAI10CheckBox.Size = new System.Drawing.Size(67, 17);
             this.trainerAI10CheckBox.TabIndex = 9;
@@ -10158,7 +10015,7 @@
             // trainerAI11CheckBox
             // 
             this.trainerAI11CheckBox.AutoSize = true;
-            this.trainerAI11CheckBox.Location = new System.Drawing.Point(271, 67);
+            this.trainerAI11CheckBox.Location = new System.Drawing.Point(191, 67);
             this.trainerAI11CheckBox.Name = "trainerAI11CheckBox";
             this.trainerAI11CheckBox.Size = new System.Drawing.Size(44, 17);
             this.trainerAI11CheckBox.TabIndex = 10;
@@ -10218,10 +10075,24 @@
             this.trainerItem4ComboBox.Size = new System.Drawing.Size(171, 21);
             this.trainerItem4ComboBox.TabIndex = 3;
             // 
+            // deleteTrainerButton
+            // 
+            this.deleteTrainerButton.Enabled = false;
+            this.deleteTrainerButton.Image = global::DSPRE.Properties.Resources.deleteIcon;
+            this.deleteTrainerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.deleteTrainerButton.Location = new System.Drawing.Point(289, 372);
+            this.deleteTrainerButton.Name = "deleteTrainerButton";
+            this.deleteTrainerButton.Size = new System.Drawing.Size(102, 23);
+            this.deleteTrainerButton.TabIndex = 44;
+            this.deleteTrainerButton.Text = "Delete Trainer";
+            this.deleteTrainerButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.deleteTrainerButton.UseVisualStyleBackColor = true;
+            this.deleteTrainerButton.Visible = false;
+            // 
             // trainerItemsCheckBox
             // 
             this.trainerItemsCheckBox.AutoSize = true;
-            this.trainerItemsCheckBox.Location = new System.Drawing.Point(215, 119);
+            this.trainerItemsCheckBox.Location = new System.Drawing.Point(215, 115);
             this.trainerItemsCheckBox.Name = "trainerItemsCheckBox";
             this.trainerItemsCheckBox.Size = new System.Drawing.Size(117, 17);
             this.trainerItemsCheckBox.TabIndex = 25;
@@ -10229,10 +10100,25 @@
             this.trainerItemsCheckBox.UseVisualStyleBackColor = true;
             this.trainerItemsCheckBox.CheckedChanged += new System.EventHandler(this.trainerItemsCheckBox_CheckedChanged);
             // 
+            // addTrainerButton
+            // 
+            this.addTrainerButton.Enabled = false;
+            this.addTrainerButton.Image = global::DSPRE.Properties.Resources.addIcon;
+            this.addTrainerButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.addTrainerButton.Location = new System.Drawing.Point(294, 275);
+            this.addTrainerButton.Name = "addTrainerButton";
+            this.addTrainerButton.Size = new System.Drawing.Size(102, 23);
+            this.addTrainerButton.TabIndex = 35;
+            this.addTrainerButton.Text = "Add Trainer";
+            this.addTrainerButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addTrainerButton.UseVisualStyleBackColor = true;
+            this.addTrainerButton.Visible = false;
+            this.addTrainerButton.Click += new System.EventHandler(this.addTrainerButton_Click);
+            // 
             // trainerMovesCheckBox
             // 
             this.trainerMovesCheckBox.AutoSize = true;
-            this.trainerMovesCheckBox.Location = new System.Drawing.Point(215, 98);
+            this.trainerMovesCheckBox.Location = new System.Drawing.Point(215, 94);
             this.trainerMovesCheckBox.Name = "trainerMovesCheckBox";
             this.trainerMovesCheckBox.Size = new System.Drawing.Size(97, 17);
             this.trainerMovesCheckBox.TabIndex = 24;
@@ -10243,7 +10129,7 @@
             // trainerDoubleCheckBox
             // 
             this.trainerDoubleCheckBox.AutoSize = true;
-            this.trainerDoubleCheckBox.Location = new System.Drawing.Point(215, 76);
+            this.trainerDoubleCheckBox.Location = new System.Drawing.Point(215, 72);
             this.trainerDoubleCheckBox.Name = "trainerDoubleCheckBox";
             this.trainerDoubleCheckBox.Size = new System.Drawing.Size(90, 17);
             this.trainerDoubleCheckBox.TabIndex = 23;
@@ -10329,11 +10215,11 @@
             // 
             this.trainerSaveCurrentButton.Image = global::DSPRE.Properties.Resources.saveButton;
             this.trainerSaveCurrentButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.trainerSaveCurrentButton.Location = new System.Drawing.Point(14, 48);
+            this.trainerSaveCurrentButton.Location = new System.Drawing.Point(15, 49);
             this.trainerSaveCurrentButton.Name = "trainerSaveCurrentButton";
-            this.trainerSaveCurrentButton.Size = new System.Drawing.Size(200, 23);
+            this.trainerSaveCurrentButton.Size = new System.Drawing.Size(199, 23);
             this.trainerSaveCurrentButton.TabIndex = 31;
-            this.trainerSaveCurrentButton.Text = "&Save Current Trainer";
+            this.trainerSaveCurrentButton.Text = "&Save Full Trainer File";
             this.trainerSaveCurrentButton.UseVisualStyleBackColor = true;
             this.trainerSaveCurrentButton.Click += new System.EventHandler(this.trainerSaveCurrentButton_Click);
             // 
@@ -10346,7 +10232,7 @@
             this.tableEditorTabPage.Location = new System.Drawing.Point(4, 23);
             this.tableEditorTabPage.Name = "tableEditorTabPage";
             this.tableEditorTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.tableEditorTabPage.Size = new System.Drawing.Size(1185, 703);
+            this.tableEditorTabPage.Size = new System.Drawing.Size(1185, 619);
             this.tableEditorTabPage.TabIndex = 9;
             this.tableEditorTabPage.Text = "Table Editor";
             this.tableEditorTabPage.UseVisualStyleBackColor = true;
@@ -10861,6 +10747,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.aboutToolStripMenuItem,
+            this.monEditorToolStripMenuItem,
             this.menuViewToolStripMenuItem,
             this.aboutToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -11101,6 +10988,30 @@
             this.extractNSBTXFromNSBMDToolStripMenuItem.Text = "Save textures from NSBMD";
             this.extractNSBTXFromNSBMDToolStripMenuItem.Click += new System.EventHandler(this.nsbmdExportTexButton_Click);
             // 
+            // monEditorToolStripMenuItem
+            // 
+            this.monEditorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.personalDataEditorToolStripMenuItem,
+            this.learnsetsEditorToolStripMenuItem});
+            this.monEditorToolStripMenuItem.Enabled = false;
+            this.monEditorToolStripMenuItem.Name = "monEditorToolStripMenuItem";
+            this.monEditorToolStripMenuItem.Size = new System.Drawing.Size(78, 20);
+            this.monEditorToolStripMenuItem.Text = "Mon Editor";
+            // 
+            // personalDataEditorToolStripMenuItem
+            // 
+            this.personalDataEditorToolStripMenuItem.Name = "personalDataEditorToolStripMenuItem";
+            this.personalDataEditorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.personalDataEditorToolStripMenuItem.Text = "Personal Data Editor";
+            this.personalDataEditorToolStripMenuItem.Click += new System.EventHandler(this.personalDataEditorToolStripMenuItem_Click);
+            // 
+            // learnsetsEditorToolStripMenuItem
+            // 
+            this.learnsetsEditorToolStripMenuItem.Name = "learnsetsEditorToolStripMenuItem";
+            this.learnsetsEditorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.learnsetsEditorToolStripMenuItem.Text = "Learnsets Editor";
+            this.learnsetsEditorToolStripMenuItem.Click += new System.EventHandler(this.learnsetsEditorToolStripMenuItem_Click);
+            // 
             // menuViewToolStripMenuItem
             // 
             this.menuViewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -11155,7 +11066,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabel,
             this.toolStripProgressBar});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 805);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 721);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1214, 22);
             this.statusStrip1.TabIndex = 13;
@@ -11523,7 +11434,7 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1214, 827);
+            this.ClientSize = new System.Drawing.Size(1214, 743);
             this.Controls.Add(this.versionLabel);
             this.Controls.Add(this.languageLabel);
             this.Controls.Add(this.gameIcon);
@@ -11537,7 +11448,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "MainProgram";
-            this.Text = "DS Pokémon Rom Editor Reloaded 1.9.2 (Nømura, AdAstra/LD3005)";
+            this.Text = "DS Pokémon Rom Editor Reloaded 1.10.1 (Nømura, AdAstra/LD3005, Mixone)";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainProgram_FormClosing);
             this.mainTabControl.ResumeLayout(false);
             this.headerEditorTabPage.ResumeLayout(false);
@@ -11773,6 +11684,8 @@
             this.trainerEditorTabPage.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.groupBox28.ResumeLayout(false);
+            this.groupBox28.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
             this.party6GroupBox.ResumeLayout(false);
             this.party6GroupBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.partyPokemonItemPictureBox6)).EndInit();
@@ -11829,6 +11742,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trainerClassPicBox)).EndInit();
             this.groupBox25.ResumeLayout(false);
             this.groupBox25.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
             this.TrainerAIGroupBox.ResumeLayout(false);
             this.TrainerAIGroupBox.PerformLayout();
             this.trainerItemsGroupBox.ResumeLayout(false);
@@ -11881,7 +11795,6 @@
         private System.Windows.Forms.NumericUpDown widthUpDown;
         private System.Windows.Forms.Label widthLabel;
         private System.Windows.Forms.ComboBox selectMatrixComboBox;
-        private System.Windows.Forms.Button saveMatrixButton;
         private System.Windows.Forms.DataGridView headersGridView;
         private System.Windows.Forms.Button addHeadersButton;
         private System.Windows.Forms.Button addHeightsButton;
@@ -12353,7 +12266,6 @@
         private System.Windows.Forms.ToolStripMenuItem platinumToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem heartGoldAndSoulSilverToolStripMenuItem;
         private System.Windows.Forms.Label spriteIDlabel;
-        private System.Windows.Forms.Button setSpawnPointButton;
         private System.Windows.Forms.ToolStripButton spawnEditorToolStripButton;
         private System.Windows.Forms.ToolStripMenuItem spawnEditorToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox22;
@@ -12539,10 +12451,6 @@
         private System.Windows.Forms.Label followModeLabel;
         private System.Windows.Forms.Button importTrainerButton;
         private System.Windows.Forms.Button exportTrainerButton;
-        private System.Windows.Forms.Button importReplacePartyButton;
-        private System.Windows.Forms.Button importReplacePropertiesButton;
-        private System.Windows.Forms.Button exportPropertiesButton;
-        private System.Windows.Forms.Button exportPartyButton;
         private System.Windows.Forms.PictureBox trainerClassPicBox;
         private System.Windows.Forms.TextBox trainerClassNameTextbox;
         private System.Windows.Forms.Label label17;
@@ -12702,24 +12610,6 @@
         private System.Windows.Forms.Button glbExportButton;
         private System.Windows.Forms.Button sortOWsByIDAscButton;
         private System.Windows.Forms.Button sortOWsByIDDescButton;
-        private System.Windows.Forms.ComboBox partyGender6ComboBox;
-        private System.Windows.Forms.ComboBox partyGender5ComboBox;
-        private System.Windows.Forms.ComboBox partyGender4ComboBox;
-        private System.Windows.Forms.ComboBox partyGender3ComboBox;
-        private System.Windows.Forms.ComboBox partyGender2ComboBox;
-        private System.Windows.Forms.ComboBox partyAbility1ComboBox;
-        private System.Windows.Forms.ComboBox partyAbility6ComboBox;
-        private System.Windows.Forms.ComboBox partyAbility5ComboBox;
-        private System.Windows.Forms.ComboBox partyAbility4ComboBox;
-        private System.Windows.Forms.ComboBox partyAbility3ComboBox;
-        private System.Windows.Forms.ComboBox partyAbility2ComboBox;
-        private System.Windows.Forms.ComboBox partyGender1ComboBox;
-        private System.Windows.Forms.ComboBox partyForm1ComboBox;
-        private System.Windows.Forms.ComboBox partyForm6ComboBox;
-        private System.Windows.Forms.ComboBox partyForm5ComboBox;
-        private System.Windows.Forms.ComboBox partyForm4ComboBox;
-        private System.Windows.Forms.ComboBox partyForm3ComboBox;
-        private System.Windows.Forms.ComboBox partyForm2ComboBox;
     }
 }
 

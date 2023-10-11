@@ -1,9 +1,12 @@
-﻿using LibNDSFormats.NSBMD;
+﻿using Ekona.Images;
+using Images;
+using LibNDSFormats.NSBMD;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using NarcAPI;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -34,7 +37,7 @@ namespace DSPRE {
                     this.BaseStream.Position = pos;
                 }
             }
-            public class Writer : EasyWriter { 
+            public class Writer : EasyWriter {
                 public Writer(long pos = 0) : base(arm9Path, pos) {
                     this.BaseStream.Position = pos;
                 }
@@ -67,7 +70,7 @@ namespace DSPRE {
                 return new FileInfo(RomInfo.arm9Path).Length <= 0xBC000;
             }
             public static bool CheckCompressionMark() {
-                return BitConverter.ToInt32( DSUtils.ARM9.ReadBytes((uint)(RomInfo.gameFamily == gFamEnum.DP ? 0xB7C : 0xBB4), 4), 0 ) != 0;
+                return BitConverter.ToInt32(DSUtils.ARM9.ReadBytes((uint)(RomInfo.gameFamily == gFamEnum.DP ? 0xB7C : 0xBB4), 4), 0) != 0;
             }
             public static byte[] ReadBytes(uint startOffset, long numberOfBytes = 0) {
                 return ReadFromFile(RomInfo.arm9Path, startOffset, numberOfBytes);
@@ -119,7 +122,7 @@ namespace DSPRE {
             string outDir = Path.Combine(cofd.FileName, modelName);
 
             if (Directory.Exists(outDir)) {
-                if(Directory.GetFiles(outDir).Length > 0) {
+                if (Directory.GetFiles(outDir).Length > 0) {
                     DialogResult d = MessageBox.Show($"Directory \"{outDir}\" already exists and is not empty.\nIts contents will be lost.\n\nDo you want to proceed?", "Directory not empty", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (d.Equals(DialogResult.No)) {
@@ -170,54 +173,42 @@ namespace DSPRE {
             }
         }
 
-        public static void ModelToGLB(string modelName, byte[] modelData, byte[] textureData)
-        {
+        public static void ModelToGLB(string modelName, byte[] modelData, byte[] textureData) {
             MessageBox.Show("Choose output folder.\nDSPRE will automatically create a sub-folder in it.", "Awaiting user input", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            CommonOpenFileDialog cofd = new CommonOpenFileDialog
-            {
+            CommonOpenFileDialog cofd = new CommonOpenFileDialog {
                 IsFolderPicker = true,
                 Multiselect = false
             };
-            if (cofd.ShowDialog() != CommonFileDialogResult.Ok)
-            {
+            if (cofd.ShowDialog() != CommonFileDialogResult.Ok) {
                 return;
             }
 
             string outDir = Path.Combine(cofd.FileName, modelName);
 
-            if (Directory.Exists(outDir))
-            {
-                if (Directory.GetFiles(outDir).Length > 0)
-                {
+            if (Directory.Exists(outDir)) {
+                if (Directory.GetFiles(outDir).Length > 0) {
                     DialogResult d = MessageBox.Show($"Directory \"{outDir}\" already exists and is not empty.\nIts contents will be lost.\n\nDo you want to proceed?", "Directory not empty", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                    if (d.Equals(DialogResult.No))
-                    {
+                    if (d.Equals(DialogResult.No)) {
                         return;
-                    }
-                    else
-                    {
+                    } else {
                         Directory.Delete(outDir, recursive: true);
                     }
-                }
-                else
-                {
+                } else {
                     Directory.Delete(outDir, recursive: true);
                 }
             }
             string tempNSBMDPath = outDir + "_temp.nsbmd";
 
-            if (textureData != null && textureData.Length > 0)
-            {
+            if (textureData != null && textureData.Length > 0) {
                 modelData = DSUtils.BuildNSBMDwithTextures(modelData, textureData);
             }
 
             File.WriteAllBytes(tempNSBMDPath, modelData);
 
             /* Check correct creation of temp NSBMD file*/
-            if (!File.Exists(tempNSBMDPath))
-            {
+            if (!File.Exists(tempNSBMDPath)) {
                 MessageBox.Show("NSBMD file corresponding to this map could not be found.\nAborting", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
@@ -230,26 +221,19 @@ namespace DSPRE {
             apicula.Start();
             apicula.WaitForExit();
 
-            if (File.Exists(tempNSBMDPath))
-            {
+            if (File.Exists(tempNSBMDPath)) {
                 File.Delete(tempNSBMDPath);
 
-                if (File.Exists(tempNSBMDPath))
-                {
+                if (File.Exists(tempNSBMDPath)) {
                     MessageBox.Show("Temporary NSBMD file deletion failed.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-            }
-            else
-            {
+            } else {
                 MessageBox.Show("Temporary NSBMD file corresponding to this map disappeared.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            if (apicula.ExitCode == 0)
-            {
+            if (apicula.ExitCode == 0) {
                 MessageBox.Show("NSBMD was exported and converted successfully!", "Operation successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
+            } else {
                 MessageBox.Show("NSBMD to GLB conversion failed.", "Apicula error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -359,7 +343,7 @@ namespace DSPRE {
                 }
             }
         }
-        
+
         /**
          * Only checks if the overlay is CONFIGURED as compressed
          **/
@@ -478,7 +462,7 @@ namespace DSPRE {
             });
         }
 
-        public static byte[] GetModelWithoutTextures (byte[] modelFile) {
+        public static byte[] GetModelWithoutTextures(byte[] modelFile) {
             byte[] nsbmdHeaderData;
             uint mdl0Size;
             byte[] mdl0Data;
@@ -507,7 +491,7 @@ namespace DSPRE {
             }
             return output.ToArray();
         }
-        
+
         public static byte[] GetTexturesFromTexturedNSBMD(byte[] modelFile) {
             using (BinaryReader byteArrReader = new BinaryReader(new MemoryStream(modelFile))) {
                 byteArrReader.BaseStream.Position = 14;
@@ -571,7 +555,7 @@ namespace DSPRE {
                 msWriter.Write(nBlocks); //Number of blocks, now it's 2 because we are inserting textures
 
                 msWriter.Write((uint)(msWriter.BaseStream.Position + 4 * nBlocks)); //Absolute offset to model data. We are gonna have to write two offsets
-                    
+
                 msWriter.Write(modelLength); //Copy offset to TEX0
                 msWriter.Write(wholeMDL0);
                 msWriter.Write(wholeTEX0);
@@ -592,6 +576,72 @@ namespace DSPRE {
             Buffer.BlockCopy(NSBFile, (int)offsetToMainBlock, blockData, 0, blockSize);
 
             return blockData;
+        }
+
+        public static Image GetPokePic(int species, int w, int h) {
+            PaletteBase paletteBase;
+            bool fiveDigits = false; // some extreme future proofing
+            string filename = "0000";
+
+            try {
+                paletteBase = new NCLR(gameDirs[DirNames.monIcons].unpackedDir + "\\" + filename, 0, filename);
+            } catch (FileNotFoundException) {
+                filename += '0';
+                paletteBase = new NCLR(gameDirs[DirNames.monIcons].unpackedDir + "\\" + filename, 0, filename);
+                fiveDigits = true;
+            }
+
+            // read arm9 table to grab pal ID
+            int paletteId = 0;
+            string iconTablePath;
+
+            int iconPalTableOffsetFromFileStart;
+            string ov129path = DSUtils.GetOverlayPath(129);
+            if (File.Exists(ov129path)) {
+                // if overlay 129 exists, read it from there
+                iconPalTableOffsetFromFileStart = (int)(RomInfo.monIconPalTableAddress - DSUtils.GetOverlayRAMAddress(129));
+                iconTablePath = ov129path;
+            } else if ((int)(RomInfo.monIconPalTableAddress - RomInfo.synthOverlayLoadAddress) >= 0) {
+                // if there is a synthetic overlay, read it from there
+                iconPalTableOffsetFromFileStart = (int)(RomInfo.monIconPalTableAddress - RomInfo.synthOverlayLoadAddress);
+                iconTablePath = gameDirs[DirNames.synthOverlay].unpackedDir + "\\" + ROMToolboxDialog.expandedARMfileID.ToString("D4");
+            } else {
+                // default handling
+                iconPalTableOffsetFromFileStart = (int)(RomInfo.monIconPalTableAddress - DSUtils.ARM9.address);
+                iconTablePath = RomInfo.arm9Path;
+            }
+
+            using (DSUtils.EasyReader idReader = new DSUtils.EasyReader(iconTablePath, iconPalTableOffsetFromFileStart + species)) {
+                paletteId = idReader.ReadByte();
+            }
+
+            if (paletteId != 0) {
+                paletteBase.Palette[0] = paletteBase.Palette[paletteId]; // update pal 0 to be the new pal
+            }
+
+            // grab tiles
+            int spriteFileID = species + 7;
+            string spriteFilename = spriteFileID.ToString("D" + (fiveDigits ? "5" : "4"));
+            ImageBase imageBase = new NCGR(gameDirs[DirNames.monIcons].unpackedDir + "\\" + spriteFilename, spriteFileID, spriteFilename);
+
+            // grab sprite
+            int ncerFileId = 2;
+            string ncerFileName = ncerFileId.ToString("D" + (fiveDigits ? "5" : "4"));
+            SpriteBase spriteBase = new NCER(gameDirs[DirNames.monIcons].unpackedDir + "\\" + ncerFileName, 2, ncerFileName);
+
+            // copy this from the trainer
+            int bank0OAMcount = spriteBase.Banks[0].oams.Length;
+            int[] OAMenabled = new int[bank0OAMcount];
+            for (int i = 0; i < OAMenabled.Length; i++) {
+                OAMenabled[i] = i;
+            }
+
+            // finally compose image
+            try {
+                return spriteBase.Get_Image(imageBase, paletteBase, 0, w, h, false, false, false, true, true, -1, OAMenabled);
+            } catch (FormatException) {
+                return Properties.Resources.IconPokeball;
+            }
         }
     }
 }

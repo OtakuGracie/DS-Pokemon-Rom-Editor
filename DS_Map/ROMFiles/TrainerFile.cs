@@ -24,8 +24,7 @@ namespace DSPRE.ROMFiles {
         public ushort? heldItem = null;
         public ushort[] moves = null;
 
-        public enum GenderAndAbilityFlags
-        {
+        public enum GenderAndAbilityFlags {
             NO_FLAGS = 0,
             FORCE_MALE = 0x1,
             FORCE_FEMALE = 0x2,
@@ -35,8 +34,8 @@ namespace DSPRE.ROMFiles {
         #endregion
 
         #region Constructor
-        public PartyPokemon(bool hasItems = false, bool hasMoves = false) {
-            UpdateItemsAndMoves(hasItems, hasMoves);
+        public PartyPokemon(bool chooseItems = false, bool chooseMoves = false) {
+            UpdateItemsAndMoves(chooseItems, chooseMoves);
         }
 
         public PartyPokemon(byte difficulty, GenderAndAbilityFlags genderAndAbilityFlags, ushort Level, ushort pokeNum, ushort ballSealConfig, ushort? heldItem = null, ushort[] moves = null) {
@@ -49,8 +48,7 @@ namespace DSPRE.ROMFiles {
             this.moves = moves;
         }
 
-        public PartyPokemon(byte difficulty, ushort Level, ushort pokeNum, ushort? heldItem = null, ushort[] moves = null)
-        {
+        public PartyPokemon(byte difficulty, ushort Level, ushort pokeNum, ushort? heldItem = null, ushort[] moves = null) {
             // Simply adding a new constructor for Diamond and Pearl since they dont have ball seal config
             pokeID = pokeNum;
             level = Level;
@@ -85,11 +83,11 @@ namespace DSPRE.ROMFiles {
             }
             return newData.ToArray();
         }
-        public void UpdateItemsAndMoves(bool hasItems = false, bool hasMoves = false) {
-            if (hasItems) {
+        public void UpdateItemsAndMoves(bool chooseItems = false, bool chooseMoves = false) {
+            if (chooseItems) {
                 this.heldItem = 0;
             }
-            if (hasMoves) {
+            if (chooseMoves) {
                 this.moves = new ushort[4];
             }
         }
@@ -97,7 +95,7 @@ namespace DSPRE.ROMFiles {
         public override string ToString() {
             return CheckEmpty() ? "Empty" : this.pokeID + " Lv. " + this.level;
         }
-        public bool CheckEmpty () {
+        public bool CheckEmpty() {
             return this is null || pokeID is null || level <= 0;
         }
         #endregion
@@ -115,8 +113,8 @@ namespace DSPRE.ROMFiles {
         public byte partyCount = 0;
 
         public bool doubleBattle = false;
-        public bool hasMoves = false;
-        public bool hasItems = false;
+        public bool chooseMoves = false;
+        public bool chooseItems = false;
 
         public ushort[] trainerItems = new ushort[TRAINER_ITEMS];
         public BitArray AI;
@@ -126,15 +124,15 @@ namespace DSPRE.ROMFiles {
         public TrainerProperties(ushort ID, byte partyCount = 0) {
             trainerID = ID;
             trainerItems = new ushort[TRAINER_ITEMS];
-            AI = new BitArray( new bool[AI_COUNT] { true, false, false, false, false, false, false, false, false, false, false } );
+            AI = new BitArray(new bool[AI_COUNT] { true, false, false, false, false, false, false, false, false, false, false });
             trDataUnknown = 0;
         }
         public TrainerProperties(ushort ID, Stream trainerPropertiesStream) {
             trainerID = ID;
             using (BinaryReader reader = new BinaryReader(trainerPropertiesStream)) {
                 byte flags = reader.ReadByte();
-                hasMoves = (flags & 1) != 0;
-                hasItems = (flags & 2) != 0;
+                chooseMoves = (flags & 1) != 0;
+                chooseItems = (flags & 2) != 0;
 
                 trainerClass = reader.ReadByte();
                 trDataUnknown = reader.ReadByte();
@@ -144,7 +142,7 @@ namespace DSPRE.ROMFiles {
                     trainerItems[i] = reader.ReadUInt16();
                 }
 
-                AI = new BitArray( BitConverter.GetBytes(reader.ReadUInt32()) );
+                AI = new BitArray(BitConverter.GetBytes(reader.ReadUInt32()));
                 doubleBattle = reader.ReadUInt32() == 2;
             }
         }
@@ -155,8 +153,8 @@ namespace DSPRE.ROMFiles {
             MemoryStream newData = new MemoryStream();
             using (BinaryWriter writer = new BinaryWriter(newData)) {
                 byte flags = 0;
-                flags |= (byte)(hasMoves ? 1 : 0);
-                flags |= (byte)(hasItems ? 2 : 0);
+                flags |= (byte)(chooseMoves ? 1 : 0);
+                flags |= (byte)(chooseItems ? 2 : 0);
 
                 writer.Write(flags);
                 writer.Write(trainerClass);
@@ -211,17 +209,17 @@ namespace DSPRE.ROMFiles {
                     if (readFirstByte) {
                         byte flags = reader.ReadByte();
 
-                        trp.hasMoves = (flags & 1) != 0;
-                        trp.hasItems = (flags & 2) != 0;
+                        trp.chooseMoves = (flags & 1) != 0;
+                        trp.chooseItems = (flags & 2) != 0;
                         trp.partyCount = (byte)((flags & 28) >> 2);
                     }
 
                     int dividend = 8;
 
-                    if (trp.hasMoves) {
+                    if (trp.chooseMoves) {
                         dividend += Party.MOVES_PER_POKE * sizeof(ushort);
                     }
-                    if (trp.hasItems) {
+                    if (trp.chooseItems) {
                         dividend += sizeof(ushort);
                     }
 
@@ -239,10 +237,10 @@ namespace DSPRE.ROMFiles {
                         ushort? heldItem = null;
                         ushort[] moves = null;
 
-                        if (trp.hasItems) {
+                        if (trp.chooseItems) {
                             heldItem = reader.ReadUInt16();
                         }
-                        if (trp.hasMoves) {
+                        if (trp.chooseMoves) {
                             moves = new ushort[MOVES_PER_POKE];
                             for (int m = 0; m < moves.Length; m++) {
                                 ushort val = reader.ReadUInt16();
@@ -279,27 +277,34 @@ namespace DSPRE.ROMFiles {
                 return "Empty";
             } else {
                 string buffer = "";
-                byte nonEmptyCtr = 0;
-                foreach(PartyPokemon p in this.content) {
-                    if (!p.CheckEmpty()) {
-                        nonEmptyCtr++;
-                    }
-                }
+                byte nonEmptyCtr = CountNonEmptyMons();
                 buffer += nonEmptyCtr + " Poke ";
-                if (this.trp.hasMoves) {
+                if (this.trp.chooseMoves) {
                     buffer += ", moves ";
                 }
-                if (this.trp.hasItems) {
+                if (this.trp.chooseItems) {
                     buffer += ", items ";
                 }
                 return buffer;
             }
         }
+
+        public byte CountNonEmptyMons() {
+            byte nonEmptyCtr = 0;
+            foreach (PartyPokemon p in this.content) {
+                if (!p.CheckEmpty()) {
+                    nonEmptyCtr++;
+                }
+            }
+
+            return nonEmptyCtr;
+        }
+
         public override byte[] ToByteArray() {
             MemoryStream newData = new MemoryStream();
             using (BinaryWriter writer = new BinaryWriter(newData)) {
                 if (this.exportCondensedData && trp != null) {
-                    byte condensedTrData = (byte)(((trp.hasMoves ? 1 : 0) & 0b_1) + (((trp.hasItems ? 1 : 0) & 0b_1) << 1) + ((trp.partyCount & 0b_1111_11) << 2));
+                    byte condensedTrData = (byte)(((trp.chooseMoves ? 1 : 0) & 0b_1) + (((trp.chooseItems ? 1 : 0) & 0b_1) << 1) + ((trp.partyCount & 0b_1111_11) << 2));
                     writer.Write(condensedTrData);
                 }
 
@@ -316,6 +321,7 @@ namespace DSPRE.ROMFiles {
         }
     }
     public class TrainerFile : RomFile {
+        public const int maxNameLen = 7;
         public const int POKE_IN_PARTY = 6;
         public static readonly string NAME_NOT_FOUND = "NAME READ ERROR";
 
@@ -326,7 +332,7 @@ namespace DSPRE.ROMFiles {
         #endregion
 
         #region Constructor
-        public TrainerFile(TrainerProperties trp, string name = ""){
+        public TrainerFile(TrainerProperties trp, string name = "") {
             this.name = name;
             this.trp = trp;
             trp.partyCount = 1;
